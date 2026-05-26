@@ -1,0 +1,63 @@
+.home-wrapper {
+    height: 100%;
+
+    
+    .hero-container {
+        height: 70%;
+        background: linear-gradient(
+        -45deg in oklch,
+        var(--clr-one),
+        var(--clr-two),
+        var(--clr-three),
+        var(--clr-four));
+        background-size: 400% 400%;
+        animation: bg 24s ease infinite;
+
+        font-family: 'jetbrains mono';
+        // font-family: 'ibm plex mono';
+        // font-family: 'space mono';
+        // font-family: 'source code pro';
+        // font-family: 'anonymous pro';
+
+
+        display: grid;
+        place-items: center;
+
+        .hero-content {
+            background-color: var(--clr-background-secondary);
+            border-radius: 15px;
+            padding: 20px;
+
+            .prompt-text {}
+            .prompt-content {
+                color: #bdbdbd;
+                padding: 20px 5px;
+                line-height: 30px;
+                width: 550px;
+
+                .logo {
+                    float: left;
+                    height: 200px;
+                    width: 200px;
+                }
+                span {
+                    text-wrap: nowrap;
+                }
+
+                hr {margin: 3px;}
+            }
+        }
+    }
+}
+
+@keyframes bg{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}

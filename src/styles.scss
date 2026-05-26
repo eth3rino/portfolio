@@ -15,8 +15,17 @@ html, body {
     --clr-background-secondary: #2d2d2d;
     --clr-background-terciary: #1b1b1b;
     --clr-soft: #89909fff;
-    --clr-primary: #114b5fff;
-    --clr-secondary: #69fff1ff;
-    --clr-highlight: #ba3f1dff;
-    --clr-midnight-violet: #310a31ff;
+    --clr-one: rgb(18, 89, 112);
+    --clr-two: #38a4ec;
+    --clr-three: #8d4ce2;
+    --clr-four: #8b2a8b;
+    --clr-highlight-one: rgb(255, 0, 0);
+    --clr-highlight-two: #4aff68;
+    --clr-highlight-three: #fa30e9;
+    --clr-highlight-four: #00e1ff;
 }
+
+.highlight-one {color: var(--clr-highlight-one);}
+.highlight-two {color: var(--clr-highlight-two)}
+.highlight-three {color: var(--clr-highlight-three)}
+.highlight-four {color: var(--clr-highlight-four)}
