@@ -4,14 +4,10 @@
     
     .hero-container {
         height: 70%;
-        background: linear-gradient(
-        -45deg in oklch,
-        var(--clr-one),
-        var(--clr-two),
-        var(--clr-three),
-        var(--clr-four));
-        background-size: 400% 400%;
-        animation: bg 24s ease infinite;
+        font-size: 21px;
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
 
         font-family: 'jetbrains mono';
         // font-family: 'ibm plex mono';
@@ -20,31 +16,45 @@
         // font-family: 'anonymous pro';
 
 
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .hero-content {
-            background-color: var(--clr-background-secondary);
+            background-color: var(--clr-surface);
             border-radius: 15px;
-            padding: 20px;
+            padding: 40px;
+            width: max-content;
 
-            .prompt-text {}
             .prompt-content {
-                color: #bdbdbd;
-                padding: 20px 5px;
-                line-height: 30px;
-                width: 550px;
+                width: 1100px;
+                display: flex;
+                align-items: center;
+                font-weight: 800;
+                color: var(--clr-values);
 
                 .logo {
-                    float: left;
-                    height: 200px;
-                    width: 200px;
-                }
-                span {
-                    text-wrap: nowrap;
+                    height: 230px;
+                    margin: 80px 40px 150px 60px;
                 }
 
-                hr {margin: 3px;}
+                .content-text {
+                    padding: 50px 0px 50px 50px;
+                    .personal-info .keys {
+                        display: inline-block;
+                        width: 140px;
+                    }
+                    .personal-info.title {
+                        margin: 0px 0px 25px;
+                    }
+                    .personal-info.second-title {
+                        margin: 40px 0px 25px;
+                    }
+                    .personal-info.text {
+                        margin-left: 40px;
+                        margin-bottom: 10px;
+                    }
+                }
             }
         }
     }
