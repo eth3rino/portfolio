@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrl: './nav.scss',
 })
 export class Nav {
-  navOpen: boolean = false
+  navOpen: boolean = true;
+  
+  constructor(private el: ElementRef) {}
+
+  toggleNav() {
+    this.navOpen = !this.navOpen
+  }
+
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.el.nativeElement.contains(event.target)) {
+      this.navOpen = false
+    }
+  }
 }
