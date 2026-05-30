@@ -1,13 +1,14 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './nav.html',
   styleUrl: './nav.scss',
 })
 export class Nav {
-  navOpen: boolean = true;
+  navOpen: boolean = false;
   
   constructor(private el: ElementRef) {}
 

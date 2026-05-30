@@ -5,51 +5,124 @@
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  animation: initShow 5s;
+}
+
+@keyframes initShow {
+  from {opacity: 0;}
+  to {opacity: 1}
 }
 
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   opacity: 0.78;
   will-change: transform;
   opacity: .8;
 }
 
-/* each blob is anchored to a corner/edge and overshoots it */
-.b1 { width: 100vw; height: 100vw; background: #c4a7b7; top: -30%;  left: -30%;  animation: d1 18s ease-in-out infinite; }
-.b2 { width: 100vw; height: 100vw; background: #7dcfff; top: -20%;  right: -20%; animation: d2 22s ease-in-out infinite; }
-.b3 { width: 100vw; height: 100vw; background: #bb9af7; bottom: -30%; left: -10%; animation: d3 25s ease-in-out infinite; }
-.b4 { width: 90vw;  height: 90vw;  background: #f7768e; bottom: -30%; right: -20%; animation: d4 19s ease-in-out infinite; }
-.b5 { width: 80vw;  height: 80vw;  background: #e0af68; top: 10%;   left: 15%;   animation: d5 23s ease-in-out infinite; }
+/* bottom — large, very blurred */
+.b1 { width: 150vw; height: 150vw; background: var(--clr-rose); top: -50%; left: -50%; animation: d1 28s ease-in-out infinite; }
+.b2 { width: 120vw; height: 120vw; background: var(--clr-foam);   top: -20%;    right: -20%; animation: d2 34s ease-in-out infinite; }
+
+/* mid-bottom */
+.bg { width: 100vw; height: 100vw; background: var(--clr-green);  bottom: 10%;  right: -30%; animation: dg 30s ease-in-out infinite; }
+
+/* mid-top */
+.b3 { width: 90vw;  height: 90vw;  background: var(--clr-purple); bottom: -30%; left: -10%;  animation: d3 25s ease-in-out infinite; }
+
+/* top — smaller, tighter */
+.b4 { width: 60vw;  height: 60vw;  background: var(--clr-pink);   bottom: -20%; right: -20%; animation: d4 19s ease-in-out infinite; }
+.b5 { width: 55vw;  height: 55vw;  background: var(--clr-gold);   top: 10%;     left: 35%;   animation: d5 23s ease-in-out infinite; }
+
+
+// /* each blob is anchored to a corner/edge and overshoots it */
+// .b1 { width: 100vw; height: 100vw; background: var(--clr-rose); top: -30%;  left: -30%;  animation: d1 18s ease-in-out infinite; }
+// .b2 { width: 100vw; height: 100vw; background: var(--clr-foam); top: -20%;  right: -20%; animation: d2 22s ease-in-out infinite; }
+// .b3 { width: 90vw; height: 90vw; background: var(--clr-purple); bottom: -30%; left: -10%; animation: d3 25s ease-in-out infinite; }
+// .b4 { width: 70vw;  height: 70vw;  background: var(--clr-pink); bottom: -20%; right: -20%; animation: d4 19s ease-in-out infinite; }
+// .b5 { width: 70vw;  height: 70vw;  background: var(--clr-gold); top: 10%;   left: 35%;   animation: d5 23s ease-in-out infinite; }
+// .bg { width: 80vw; height: 80vw; background: var(--clr-green); bottom: 10%; right:-30%, animation dg 21s ease-in-out infinite;}
 
 @keyframes d1 {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(15vw, 10vh); }
-  66%  { transform: translate(5vw,  20vh); }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate(0,     0);   filter: blur(190px); }
+  25%  { transform: translate(10vw,  5vh); filter: blur(170px); }
+  50%  { transform: translate(8vw,  12vh); filter: blur(210px); }
+  75%  { transform: translate(5vw,   8vh); filter: blur(180px); }
+  100% { transform: translate(0,     0);   filter: blur(190px); }
 }
 @keyframes d2 {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(-15vw, 15vh); }
-  66%  { transform: translate(-8vw,  25vh); }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate(0,      0);   filter: blur(190px); }
+  25%  { transform: translate(-5vw,  30vh); filter: blur(170px); }
+  50%  { transform: translate(-35vw, 25vh); filter: blur(210px); }
+  75%  { transform: translate(-30vw,  5vh); filter: blur(180px); }
+  100% { transform: translate(0,      0);   filter: blur(190px); }
+}
+@keyframes dg {
+  0%   { transform: translate(0,      0);    filter: blur(160px); }
+  25%  { transform: translate(-10vw, -30vh); filter: blur(145px); }
+  50%  { transform: translate(-35vw, -20vh); filter: blur(175px); }
+  75%  { transform: translate(-20vw,   5vh); filter: blur(150px); }
+  100% { transform: translate(0,      0);    filter: blur(160px); }
 }
 @keyframes d3 {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(18vw, -15vh); }
-  66%  { transform: translate(-8vw, -10vh); }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate(0,      0);    filter: blur(150px); }
+  25%  { transform: translate(10vw,  -30vh); filter: blur(135px); }
+  50%  { transform: translate(40vw,  -25vh); filter: blur(165px); }
+  75%  { transform: translate(35vw,   -5vh); filter: blur(145px); }
+  100% { transform: translate(0,      0);    filter: blur(150px); }
 }
+/* pink orbits counterclockwise through the bottom half */
 @keyframes d4 {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(-18vw, -15vh); }
-  66%  { transform: translate(-22vw, -8vh);  }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate(0,      0);    filter: blur(110px); }
+  25%  { transform: translate(-35vw, -10vh); filter: blur(95px);  }
+  50%  { transform: translate(-15vw, -30vh); filter: blur(125px); }
+  75%  { transform: translate(-5vw,  -15vh); filter: blur(100px); }
+  100% { transform: translate(0,      0);    filter: blur(110px); }
 }
+
+/* gold orbits clockwise through the top half */
 @keyframes d5 {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(12vw, -20vh); }
-  66%  { transform: translate(-10vw, 15vh); }
-  100% { transform: translate(0, 0); }
+  0%   { transform: translate(0,      0);    filter: blur(110px); }
+  25%  { transform: translate(15vw,   20vh); filter: blur(95px);  }
+  50%  { transform: translate(-20vw,  25vh); filter: blur(125px); }
+  75%  { transform: translate(-30vw,  5vh);  filter: blur(100px); }
+  100% { transform: translate(0,      0);    filter: blur(110px); }
 }
+// @keyframes d1 {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(15vw, 10vh); }
+//   66%  { transform: translate(5vw,  20vh); }
+//   100% { transform: translate(0, 0); }
+// }
+// @keyframes d2 {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(-15vw, 15vh); }
+//   66%  { transform: translate(5vw,  25vh); }
+//   100% { transform: translate(0, 0); }
+// }
+// @keyframes d3 {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(25vw, -15vh); }
+//   66%  { transform: translate(-5vw, -10vh); }
+//   100% { transform: translate(0, 0); }
+// }
+// @keyframes d4 {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(-15vw, -20vh); }
+//   66%  { transform: translate(-22vw, -8vh);  }
+//   100% { transform: translate(0, 0); }
+// }
+// @keyframes d5 {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(12vw, -20vh); }
+//   66%  { transform: translate(-25vw, 15vh); }
+//   100% { transform: translate(0, 0); }
+// }
+// @keyframes dg {
+//   0%   { transform: translate(0, 0); }
+//   33%  { transform: translate(-6vw, 15vh); }
+//   66%  { transform: translate(10vw, -15vh); }
+//   100% { transform: translate(0, 0); }
+// }
