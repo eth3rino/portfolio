@@ -10,6 +10,10 @@
     font-family: inherit;
 }
 
+:root {
+    font-size: clamp(12px, 1vw, 38px);
+}
+
 html, body {
     height: 100%;
     background-color: var(--clr-background);
@@ -26,7 +30,7 @@ html, body {
     --clr-gold: #e0af68;
     --clr-pink: #f7768e;
 
-    font-weight: clamp();
+    font-size: clamp(12px, 1vw, 24px);
 }
 
 .key {color: var(--clr-keys);}

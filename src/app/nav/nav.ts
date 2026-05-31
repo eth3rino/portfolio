@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,19 +8,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nav.scss',
 })
 export class Nav {
-  navOpen: boolean = false;
+
   
-  constructor(private el: ElementRef) {}
+  isOpen: boolean = true
 
   toggleNav() {
-    this.navOpen = !this.navOpen
-  }
-
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    if (!this.el.nativeElement.contains(event.target)) {
-      this.navOpen = false
-    }
+    this.isOpen = !this.isOpen;
   }
 }
