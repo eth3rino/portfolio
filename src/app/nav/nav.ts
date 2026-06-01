@@ -8,9 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nav.scss',
 })
 export class Nav {
-
   
-  isOpen: boolean = true
+  isOpen: boolean = false
 
   toggleNav() {
     this.isOpen = !this.isOpen;
