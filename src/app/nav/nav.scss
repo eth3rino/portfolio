@@ -5,6 +5,8 @@
     left: 1.5rem;
     top: 1.5rem;
 
+    user-select: none;
+
     border-radius: .4em;
     border: 3px solid var(--clr-separators);
 
@@ -17,11 +19,13 @@
     color: var(--clr-separators);
 
     .nav-button {
+        // Prep for aesthetics
         background: none;
         border: none;
         cursor: pointer;
         width: 100%;
 
+        
         display: flex;
         align-items: center;
         gap: .5em;
@@ -93,7 +97,11 @@
             }
         }
 
-        hr { color: var(--clr-separators);}
+        hr { 
+            color: var(--clr-separators);
+            background: none;
+            border: none;
+        }
     }
 
 
@@ -132,4 +140,33 @@
 @keyframes cursorBlink {
     0%, 100% {opacity: 1}
     50% {opacity: 0}
+}
+
+
+
+// Queries
+@media screen and (max-width: 1150px) {
+    .nav-container {
+        font-size: 1.5rem;
+        left: 2.2rem;
+        top: 2.2rem;
+    }
+}
+@media screen and (max-width: 950px) {
+    
+}
+@media screen and (max-width: 650px) {
+    
+}
+@media screen and (max-width: 520px) {
+    .nav-container {
+        left: 5vw;
+
+        &.open{
+            .nav-dropdown {
+                width: 88vw;
+            }
+        }
+        
+    }
 }

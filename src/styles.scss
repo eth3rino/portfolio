@@ -11,33 +11,31 @@
 }
 
 :root {
-    font-size: clamp(10px, 1vw, 38px);
+    font-size: clamp(10px, .7vw, 38px);
+
+    scroll-behavior: smooth;
 }
 
 html, body {
     height: 100%;
     background-color: var(--clr-background);
     --clr-background: #0d0f17;
+    --clr-background-light: #141722;
     --clr-surface: #1a1d2e;
     --clr-border: #2a2d3e;
     --clr-keys: #565f89;
     --clr-values: #c0caf5;
     --clr-separators: #3b3d5c;
     --clr-rose: #c4a7b7;
-    --clr-purple: #bb9af7;
-    --clr-foam: #7dcfff;
-    --clr-green: #9ece6a;
     --clr-gold: #e0af68;
     --clr-pink: #f7768e;
 
-    font-size: clamp(12px, 1vw, 24px);
+    font-size: clamp(12px, .9vw, 24px);
 }
 
+.separator {color: var(--clr-separators)}
 .key {color: var(--clr-keys);}
 .value {color: var(--clr-values);}
 .rose {color: var(--clr-rose);}
-.purple {color: var(--clr-purple);}
-.foam {color: var(--clr-foam);}
-.green {color: var(--clr-green);}
 .gold {color: var(--clr-gold)}
 .pink {color: var(--clr-pink);}

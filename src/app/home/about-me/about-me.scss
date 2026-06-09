@@ -1,0 +1,96 @@
+.about-me {
+    color: var(--clr-values);
+    font-family: 'JetBrains Mono', monospace;
+
+    padding: 12rem 8vw;
+    border-bottom: 1px solid var(--clr-border);
+
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    .about-me-left {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        .about-me-title {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 2rem;
+                height: 1px;
+                background-color: var(--clr-separators);
+            }
+        }
+
+        .about-me-oneliner {
+            font-size: 3rem;
+            max-width: 18ch;
+
+        }
+
+        .about-me-description {
+            line-height: 2em;
+            max-width: 80ch;
+        }
+
+        .separator {
+            width: 4rem;
+            height: 1px;
+            background-color: var(--clr-separators);
+        }
+
+        .info-container {
+            line-height: 3rem;
+
+            .info-item {
+                display: flex;
+                align-items: center;
+                gap: 1em;
+
+                .key {
+                    display: inline-block;
+                    width: 30%;
+                }
+                .item {
+                    height: 4px;
+                    width: 4px;
+                    border-radius: 100%;
+                    background-color: var(--clr-rose);
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 900px) {
+    .about-me {
+        flex-direction: row;
+        align-items: center;
+        gap: 10rem;
+        
+        .about-me-left {
+            flex: 1;
+
+            .about-me-title {
+                font-size: .7em;
+            }
+            
+            .about-me-description {
+                max-width: 80%;
+            }
+        }
+        .about-me-right {flex: 1}
+
+    }
+}

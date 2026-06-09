@@ -1,0 +1,61 @@
+<section class="projects-showcase" aria-label="my projects showcase">
+    <div class="projects-showcase-title rose">~/projects</div>
+    <h2 class="projects-showcase-oneliner value ">Things I've <span class="rose">built</span>.</h2>
+
+    <div class="projects-slider-controls">
+        <div class="projects-slider-guide">
+            @for (project of projects; track $index) {
+                <div class="guide-dot" (click)="setCurrentIndexTo($index)" [class.active]="$index == currentIndex()"></div>
+            }
+            <div class="guide-dot" (click)="setCurrentIndexTo(totalSlides - 1)" [class.active]="currentIndex() == totalSlides - 1"></div>
+        </div>
+        <div class="projects-slider-buttons">
+            <button class="previous-project-button" (click)="prevSlide()" [class.invalid]="currentIndex() == 0">←</button>
+            <button class="next-project-button" (click)="nextSlide()" [class.invalid]="currentIndex() == totalSlides - 1">→</button>
+        </div>
+    </div>
+
+    <div class="projects-slider-container">
+        @for (project of projects; track $index) {
+            <div class="project-slide">
+                <div class="slide-left">
+                    <div class="details-container">
+                        <div class="details-title key">// details</div>
+                        <div class="details-block">
+                            <span class="key">~ type</span>
+                            <span class="value">{{project.type}}</span>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="details-block">
+                            <span class="key">~ stack</span>
+                            <span class="value">{{project.stack}}</span>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="details-block">
+                            <span class="key">~ status</span>
+                            <span class="value">{{project.status}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-right">
+                    <div class="project-index key">// {{project.index}}</div>
+                    <h3 class="project-title value">{{project.title}}</h3>
+                    <div class="separator"></div>
+                    <div class="project-description value">{{project.description}}</div>
+                    <div class="project-tags">
+                        @for (tag of project.tags; track $index) {
+                            <span class="tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</span>
+                        }
+                    </div>
+                    <a [routerLink]="project.link" class="project-link">cd ./ <span class="rose">view-project →</span></a>
+                </div>
+            </div>
+        }
+        <div class="project-slide last-slide">
+            <div class="last-slide-label">that's not all</div>
+            <h3 class="last-slide-title">There's <span class="rose">more</span> where that came from.</h3>
+            <div class="last-slide-subtext">View the full list of projects and their documentation.</div>
+            <a class="last-slide-link">cd ./projects →</a>
+        </div>
+    </div>
+</section>
