@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterLink } from "@angular/router";
   templateUrl: './projects-showcase.html',
   styleUrl: './projects-showcase.scss',
 })
-export class ProjectsShowcase {
+export class ProjectsShowcase implements AfterViewInit, OnDestroy{
 
   projects: Project[] = [
     {
@@ -35,7 +35,7 @@ export class ProjectsShowcase {
       title: 'Realtime System Monitor',
       description: 'A WebSocket-powered dashboard for monitoring system metrics in real time. A Rust CLI backend feeds live data to an Angular frontend via NestJS — CPU, memory, disk and network at a glance.',
       type: 'Realtime Dashboard',
-      stack: 'Angular · NestJS · Rust · WebSockets',
+      stack: 'Angular · NestJS · Rust',
       status: 'In Progress',
       tags: ['Angular', 'NestJS', 'Rust'],
       link: '/projects',
@@ -46,38 +46,77 @@ export class ProjectsShowcase {
 
   currentIndex: WritableSignal<number> = signal(0)
 
-  setCurrentIndexTo(n: number) {
-    if (n >= this.totalSlides || n < 0) {
-      console.log('Invalid index')
-      return
+
+  scrollToSlide(index: number) {
+    const container = this.slideContainer.nativeElement;
+
+    container.scrollTo({
+      left: index * container.offsetWidth,
+      behavior: 'smooth'
+    })
+  }
+
+  nextSlide() {
+    if (this.currentIndex() < this.totalSlides - 1) {
+      this.scrollToSlide(this.currentIndex() + 1);
     }
-    this.currentIndex.set(n)
   }
 
   prevSlide() {
     if (this.currentIndex() > 0) {
-      this.currentIndex.set(this.currentIndex() - 1)
-      console.log('done')
-    } else {console.log('Already at first slide')}
+      this.scrollToSlide(this.currentIndex() - 1);
+    }
   }
-  nextSlide() {
-    if (this.currentIndex() < this.totalSlides - 1) {
-      this.currentIndex.set(this.currentIndex() + 1)
-      console.log('done')
-    } else {console.log('Already at last slide')}
-  } 
+
+  setCurrentIndexTo(n: number) {
+    if (n >= this.totalSlides || n < 0) return;
+    this.scrollToSlide(n);
+  }
 
 
   getTagColor(tag: string): string {
     return TAG_COLORS[tag.toLowerCase()] ?? '#565f89';
   }
+
+
+
+  @ViewChild('slideContainer') slideContainer!: ElementRef
  
+  private slideObserver!: IntersectionObserver;
+
+  ngAfterViewInit(): void {
+    const container = this.slideContainer.nativeElement;
+    const slides = container.querySelectorAll('.project-slide') as NodeListOf<HTMLElement>
+
+    this.slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Array.from(slides).indexOf(entry.target as HTMLElement);
+          if (index !== -1) {
+            this.currentIndex.set(index);
+          }
+        }
+      })
+      },
+      {
+        root: container,
+        threshold: 0.6
+    })
+
+    slides.forEach(slide => this.slideObserver.observe(slide))
+
+    this.scrollToSlide(0)
+  }
+
+  ngOnDestroy(): void {
+    
+  }
 }
 
 export const TAG_COLORS: Record<string, string> = {
   angular:    '#f92388',
   nestjs:     '#e22642',
-  postgresql: '#336791',
+  postgresql: '#5084ad',
   docker:     '#1d63ed',
   nixos:      '#556fa3',
   nix:        '#9ece6a',

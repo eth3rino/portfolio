@@ -1,7 +1,6 @@
 <section class="projects-showcase" aria-label="my projects showcase">
     <div class="projects-showcase-title rose">~/projects</div>
     <h2 class="projects-showcase-oneliner value ">Things I've <span class="rose">built</span>.</h2>
-
     <div class="projects-slider-controls">
         <div class="projects-slider-guide">
             @for (project of projects; track $index) {
@@ -10,12 +9,12 @@
             <div class="guide-dot" (click)="setCurrentIndexTo(totalSlides - 1)" [class.active]="currentIndex() == totalSlides - 1"></div>
         </div>
         <div class="projects-slider-buttons">
-            <button class="previous-project-button" (click)="prevSlide()" [class.invalid]="currentIndex() == 0">←</button>
-            <button class="next-project-button" (click)="nextSlide()" [class.invalid]="currentIndex() == totalSlides - 1">→</button>
+            <button class="previous-project-button" (click)="prevSlide()" [class.invalid]="currentIndex() == 0">prev</button>
+            <button class="next-project-button" (click)="nextSlide()" [class.invalid]="currentIndex() == totalSlides - 1">next</button>
         </div>
     </div>
 
-    <div class="projects-slider-container">
+    <div class="projects-slider-container" #slideContainer>
         @for (project of projects; track $index) {
             <div class="project-slide">
                 <div class="slide-left">
@@ -47,15 +46,15 @@
                             <span class="tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</span>
                         }
                     </div>
-                    <a [routerLink]="project.link" class="project-link">cd ./ <span class="rose">view-project →</span></a>
+                    <a [routerLink]="project.link" class="project-link">cd ./<span class="rose">view-project →</span></a>
                 </div>
             </div>
         }
         <div class="project-slide last-slide">
-            <div class="last-slide-label">that's not all</div>
+            <div class="last-slide-label rose">that's not all</div>
             <h3 class="last-slide-title">There's <span class="rose">more</span> where that came from.</h3>
             <div class="last-slide-subtext">View the full list of projects and their documentation.</div>
-            <a class="last-slide-link">cd ./projects →</a>
+            <a class="last-slide-link">cd ./<span class="rose">projects →</span></a>
         </div>
     </div>
 </section>
