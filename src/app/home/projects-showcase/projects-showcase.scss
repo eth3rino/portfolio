@@ -40,6 +40,7 @@
         .projects-slider-guide {
             display: flex;
             gap: .9em;
+            margin-left: 1rem;
 
             .guide-dot {
                 width: .6em;
@@ -126,6 +127,8 @@
                     border-radius: 1rem;
                     border: 1px solid var(--clr-border);
 
+                    list-style: none;
+
                     .details-block {
                         .key { 
                             display: inline-block;
@@ -149,7 +152,7 @@
                 .project-index {}
 
                 .project-title {
-                    font-size: 1.7em;
+                    font-size: 2em;
                 }
 
                 .separator {
@@ -167,15 +170,16 @@
                     gap: 1.5rem;
                     .tag {
                         color: var(--tag-color);
-                        padding: .5em .8em;
-                        border-radius: 1em;
-                        border: 1px solid var(--tag-color);
+                        padding: .3em .6em;
+                        border-radius: .5em;
+                        border: 1px solid color-mix(in srgb, var(--tag-color) 50%, transparent);
                     }
                 }   
 
                 .project-link {
                     color: var(--clr-border);
                     text-decoration: none;
+                    font-size: 1.2em;
 
                     transition: .25s ease;
                     
@@ -230,6 +234,7 @@
 
                 .last-slide-link {
                     color: var(--clr-keys);
+                    text-decoration: none;
                     border: 1px solid var(--clr-border);
                     border-radius: .5em;
                     padding: .5em .8em;

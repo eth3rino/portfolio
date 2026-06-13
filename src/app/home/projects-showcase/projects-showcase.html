@@ -1,16 +1,16 @@
 <section class="projects-showcase" aria-label="my projects showcase">
-    <div class="projects-showcase-title rose">~/projects</div>
+    <div class="projects-showcase-title rose" aria-hidden="true">~/projects</div>
     <h2 class="projects-showcase-oneliner value ">Things I've <span class="rose">built</span>.</h2>
     <div class="projects-slider-controls">
-        <div class="projects-slider-guide">
+        <div class="projects-slider-guide" aria-hidden="true">
             @for (project of projects; track $index) {
                 <div class="guide-dot" (click)="setCurrentIndexTo($index)" [class.active]="$index == currentIndex()"></div>
             }
             <div class="guide-dot" (click)="setCurrentIndexTo(totalSlides - 1)" [class.active]="currentIndex() == totalSlides - 1"></div>
         </div>
         <div class="projects-slider-buttons">
-            <button class="previous-project-button" (click)="prevSlide()" [class.invalid]="currentIndex() == 0">prev</button>
-            <button class="next-project-button" (click)="nextSlide()" [class.invalid]="currentIndex() == totalSlides - 1">next</button>
+            <button class="previous-project-button" (click)="prevSlide()" [class.invalid]="currentIndex() == 0" aria-label="Previous project">prev</button>
+            <button class="next-project-button" (click)="nextSlide()" [class.invalid]="currentIndex() == totalSlides - 1" aria-label="Next project">next</button>
         </div>
     </div>
 
@@ -18,43 +18,43 @@
         @for (project of projects; track $index) {
             <div class="project-slide">
                 <div class="slide-left">
-                    <div class="details-container">
-                        <div class="details-title key">// details</div>
-                        <div class="details-block">
-                            <span class="key">~ type</span>
-                            <span class="value">{{project.type}}</span>
-                        </div>
-                        <div class="separator"></div>
-                        <div class="details-block">
-                            <span class="key">~ stack</span>
-                            <span class="value">{{project.stack}}</span>
-                        </div>
-                        <div class="separator"></div>
-                        <div class="details-block">
-                            <span class="key">~ status</span>
-                            <span class="value">{{project.status}}</span>
-                        </div>
-                    </div>
+                    <ul class="details-container" aria-label="Project details:">
+                        <li class="details-title key" aria-hidden="true">// details</li>
+                        <li class="details-block" aria-label="Project type: {{project.type}}">
+                            <span class="key" aria-hidden="true">~ type</span>
+                            <span class="value" aria-hidden="true">{{project.type}}</span>
+                        </li>
+                        <li class="separator" aria-hidden="true"></li>
+                        <li class="details-block" aria-label="Project stack: {{project.stack}}">
+                            <span class="key" aria-hidden="true">~ stack</span>
+                            <span class="value" aria-hidden="true">{{project.stack}}</span>
+                        </li>
+                        <li class="separator" aria-hidden="true"></li>
+                        <li class="details-block" aria-label="Project status: {{project.status}}">
+                            <span class="key" aria-hidden="true">~ status</span>
+                            <span class="value" aria-hidden="true">{{project.status}}</span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="slide-right">
-                    <div class="project-index key">// {{project.index}}</div>
+                    <div class="project-index key" aria-hidden="true">// {{project.index}}</div>
                     <h3 class="project-title value">{{project.title}}</h3>
-                    <div class="separator"></div>
+                    <div class="separator" aria-hidden="true"></div>
                     <div class="project-description value">{{project.description}}</div>
-                    <div class="project-tags">
+                    <div class="project-tags" aria-label="tools used in this project">
                         @for (tag of project.tags; track $index) {
                             <span class="tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</span>
                         }
                     </div>
-                    <a [routerLink]="project.link" class="project-link">cd ./<span class="rose">view-project →</span></a>
+                    <a [routerLink]="project.link" class="project-link" aria-label="View {{project.title}} project">cd ./<span class="rose">view-project →</span></a>
                 </div>
             </div>
         }
         <div class="project-slide last-slide">
-            <div class="last-slide-label rose">that's not all</div>
+            <div class="last-slide-label rose" aria-hidden="true">that's not all</div>
             <h3 class="last-slide-title">There's <span class="rose">more</span> where that came from.</h3>
             <div class="last-slide-subtext">View the full list of projects and their documentation.</div>
-            <a class="last-slide-link">cd ./<span class="rose">projects →</span></a>
+            <a routerLink="/projects" class="last-slide-link" aria-label="View all projects">cd ./<span class="rose">projects →</span></a>
         </div>
     </div>
 </section>
