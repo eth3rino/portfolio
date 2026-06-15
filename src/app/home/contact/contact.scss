@@ -1,0 +1,44 @@
+.contact {
+
+    .contact-left {
+        .contact-label {}
+
+        .contact-title {}
+
+        .contact-caption {}
+
+        .separator {}
+
+        .contact-link-container {
+
+            .contact-link-label {}
+
+            .contact-link-block {
+
+                .link-block-icon {
+                    width: 50px;
+                    fill: var(--clr-keys);
+                }
+
+                .link-block-text {
+
+                    .link-text-label {}
+                    .link-text-content {}
+                }
+
+                .link-content-copy {
+                    background: none;
+                    border: none;
+
+                    svg {
+                        stroke: var(--clr-keys);
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-right {
+
+    }
+}

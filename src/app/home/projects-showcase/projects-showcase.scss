@@ -68,14 +68,22 @@
 
                 color: var(--clr-values);
                 background: none;
-
+                // width: 2em;
+                // height: 1.5em;
+                stroke: var(--clr-keys);
                 border: 1px solid var(--clr-keys);
-                padding: .4em .8em;
+                padding: .6em .8em;
                 border-radius: .5em;
                 cursor: pointer;
                 transition: .25s ease;
+                display: grid;
+                place-items: center;
 
-                font-size: 1.3em;
+
+                svg {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                }
 
                 &:hover {
                     color: var(--clr-rose);
@@ -177,6 +185,9 @@
                 }   
 
                 .project-link {
+                    display: inline-flex;
+                    align-items: center;
+                    
                     color: var(--clr-border);
                     text-decoration: none;
                     font-size: 1.2em;
@@ -184,6 +195,12 @@
                     transition: .25s ease;
                     
                     span {transition: .25s ease;}
+
+                    svg {
+                        height: 1.2em;
+                        width: 1.2em;
+                        margin-left: .5em;
+                    }
 
                     &:hover {
                         color: var(--clr-rose);

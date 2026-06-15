@@ -1,0 +1,30 @@
+<form>
+    <div class="input-block">
+        <label for="name">
+            ~ name
+            <input type="text" [formField]="contactForm.name">
+        </label>
+    </div>
+    <div class="input-block">
+        <label for="email">
+            ~ email
+            <input type="email" [formField]="contactForm.email">
+        </label>
+    </div>
+    <div class="input-block">
+        <label for="subject">
+            ~ subject
+            <input type="text" [formField]="contactForm.subject">
+        </label>
+    </div>
+    <div class="input-block">
+        <label for="message">
+            ~ message
+            <input type="text" [formField]="contactForm.message">
+        </label>
+    </div>
+    <div class="form-footer">
+        <div class="form-footer-caption">// I'll reply within 24h</div>
+        <input type="submit">
+    </div>
+</form>

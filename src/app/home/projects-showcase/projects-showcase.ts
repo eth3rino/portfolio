@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { LucideArrowLeft, LucideArrowRight, LucideChevronLeft, LucideChevronRight } from '@lucide/angular';
 
 @Component({
   selector: 'app-projects-showcase',
-  imports: [RouterLink],
+  imports: [RouterLink, LucideArrowRight, LucideArrowLeft],
   templateUrl: './projects-showcase.html',
   styleUrl: './projects-showcase.scss',
 })
