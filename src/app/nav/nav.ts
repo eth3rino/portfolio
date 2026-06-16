@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Logo } from '../logo/logo';
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterModule],
+  imports: [RouterModule, Logo],
   templateUrl: './nav.html',
   styleUrl: './nav.scss',
 })
 export class Nav {
-  
-  isOpen: boolean = false
 
-  toggleNav() {
-    this.isOpen = !this.isOpen;
-  }
 }

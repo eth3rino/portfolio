@@ -1,0 +1,80 @@
+.lab-teaser {
+    font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--clr-keys);
+
+    padding: 10rem 8vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    .lab-teaser-header {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 2rem;
+
+        .lab-teaser-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+
+            &::before {
+                height: 1px;
+                width: 2rem;
+                content: '';
+                background-color: var(--clr-separators);
+            }
+        }
+
+        .lab-teaser-title { font-size: 3em; }
+        .lab-teaser-caption { 
+            line-height: 2em;
+            max-width: 80ch;
+        }
+
+        .lab-link {
+            position: absolute;
+            right: 2rem;
+            bottom: 0;
+            color: inherit;
+            text-decoration: none;
+
+            display: inline-flex;
+            align-items: center;
+
+            transition: .25s ease;
+            cursor: pointer;
+
+            svg {
+                height: 1em;
+                width: 1em;
+
+                margin-left: .5em;
+            }
+
+            span {transition: .25s ease;}
+
+            &:hover {
+                color: var(--clr-rose);
+                span {color: var(--clr-values);}
+            }
+        }
+    }
+
+    .teaser-group-container {
+
+        .teaser-group-container {
+
+            .teaser-category {}
+            .teaser-title {}
+            .teaser-description {}
+            .teaser-link {}
+        }
+    }
+}
+

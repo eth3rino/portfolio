@@ -1,172 +1,253 @@
-.nav-container {
-    // Always fixed on top-left, separation depending on screen size
-    position: fixed;
-    z-index: 1000;
-    left: 1.5rem;
-    top: 1.5rem;
-
-    user-select: none;
-
-    border-radius: .4em;
-    border: 3px solid var(--clr-separators);
-
-    // Dynamic font size with :root clamp
-    font-family: 'JetBrains Mono', monospace;
+.nav-wrapper {
     font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--clr-values);
 
-    // Colors using variables so its easy to change later. Variables in root styles.css file
-    background-color: var(--clr-surface);
-    color: var(--clr-separators);
-
-    .nav-button {
-        // Prep for aesthetics
-        background: none;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-
-        
+    .nav-container {
         display: flex;
         align-items: center;
-        gap: .5em;
+        gap: 1.5em;
 
-        // These depend on the parent, since all siblings will also use the same properties
-        color: inherit;
-        font-size: inherit;
-        padding: .5em .7em;
+        position: fixed;
+        z-index: 1000;
 
-        transition: color .15s ease;
-        b.key {transition: color .15s ease;}
+        height: 6em;
+        width: 100%;
 
-        .cursor {
-            width: .3em;
-            height: .8em;
-            // margin-left: 0px;
-            border-radius: .1em;
-            transition: .15s ease;
+        background-color: color-mix(in srgb, var(--clr-surface) 50%, transparent);
+        backdrop-filter: blur(5px);
+        padding: 1.5em 3em;
 
-            background-color: var(--clr-rose);
-
-            animation: cursorBlink 1s step-end infinite;
-        }
-
-        &:hover {
-            // Lighter colors for feedback
-            color: var(--clr-keys);
-            b.key { color: var(--clr-values);}
-
-        }
-    }
-
-
-    .nav-dropdown {
-        font-size: .9em;
-        // padding: 0 .8em 1em;
-        overflow: hidden;
-
-        // For responsive sizing
-        width: 8.5em;
-        height: 0;
-        padding: 0; 
-
-        display: flex;
-        flex-direction: column;
-        gap: .3em;
-
-
-        transition: height .25s ease, width .2s ease .05s;
-
-        > * {
-            opacity: 0;
-        }
-
-        .nav-decor {
-            font-size: .7em;
-            // padding:  0;
-        }
-
-        .nav-link {
-            padding: .3em;
-            border-radius: .3em;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-
-            &:hover {
-                background-color: var(--clr-border);
-            }
-        }
-
-        hr { 
-            color: var(--clr-separators);
-            background: none;
-            border: none;
-        }
-    }
-
-
-    &.open {
-        .nav-button {
-
-
-            .cursor {
-                animation: none;
-                background-color: var(--clr-keys);
-                margin-left: auto;
-            }
-        }
-
-        .nav-dropdown {
-            width: 14.7em;
-            height: 13.8em;
-            padding: 0 .8em 1em;
-
-            transition: height .2s ease, width .2s ease;
-
-
-            > * {
-                opacity: 1;
-                transition: opacity .15s ease .2s;
-            }
-        }
-    }
-}
-
-
-
-
-
-// Animations
-@keyframes cursorBlink {
-    0%, 100% {opacity: 1}
-    50% {opacity: 0}
-}
-
-
-
-// Queries
-@media screen and (max-width: 1150px) {
-    .nav-container {
-        font-size: 1.5rem;
-        left: 2.2rem;
-        top: 2.2rem;
-    }
-}
-@media screen and (max-width: 950px) {
-    
-}
-@media screen and (max-width: 650px) {
-    
-}
-@media screen and (max-width: 520px) {
-    .nav-container {
-        left: 5vw;
-
-        &.open{
-            .nav-dropdown {
-                width: 88vw;
-            }
+        .separator {
+            width: 1px;
+            height: 2em;
+            background-color: var(--clr-keys);
         }
         
+        .link {
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.2em;
+            // font-family: 'rajdhani';
+            font-weight: bold;
+            // text-transform: uppercase;
+            &:hover {color: var(--clr-rose);}
+        }
+
+        .contact {
+            color: var(--clr-rose);
+            &:hover {color: var(--clr-values);}
+        }
+
+        .nav-home{
+            height: 100%;
+            color: var(--clr-rose);
+            transition: .25s ease;
+            margin-right: auto;
+
+            &:hover {
+                color: var(--clr-values);
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .nav-container {
+//     // Always fixed on top-left, separation depending on screen size
+//     position: fixed;
+//     z-index: 1000;
+//     left: 1.5rem;
+//     top: 1.5rem;
+
+//     user-select: none;
+
+//     border-radius: .4em;
+//     border: 3px solid var(--clr-separators);
+
+//     // Dynamic font size with :root clamp
+//     font-family: 'JetBrains Mono', monospace;
+//     font-size: 1rem;
+
+//     // Colors using variables so its easy to change later. Variables in root styles.css file
+//     background-color: var(--clr-surface);
+//     color: var(--clr-separators);
+
+//     .nav-button {
+//         // Prep for aesthetics
+//         background: none;
+//         border: none;
+//         cursor: pointer;
+//         width: 100%;
+
+        
+//         display: flex;
+//         align-items: center;
+//         gap: .5em;
+
+//         // These depend on the parent, since all siblings will also use the same properties
+//         color: inherit;
+//         font-size: inherit;
+//         padding: .5em .7em;
+
+//         transition: color .15s ease;
+//         b.key {transition: color .15s ease;}
+
+//         .cursor {
+//             width: .3em;
+//             height: .8em;
+//             // margin-left: 0px;
+//             border-radius: .1em;
+//             transition: .15s ease;
+
+//             background-color: var(--clr-rose);
+
+//             animation: cursorBlink 1s step-end infinite;
+//         }
+
+//         &:hover {
+//             // Lighter colors for feedback
+//             color: var(--clr-keys);
+//             b.key { color: var(--clr-values);}
+
+//         }
+//     }
+
+
+//     .nav-dropdown {
+//         font-size: .9em;
+//         // padding: 0 .8em 1em;
+//         overflow: hidden;
+
+//         // For responsive sizing
+//         width: 8.5em;
+//         height: 0;
+//         padding: 0; 
+
+//         display: flex;
+//         flex-direction: column;
+//         gap: .3em;
+
+
+//         transition: height .25s ease, width .2s ease .05s;
+
+//         > * {
+//             opacity: 0;
+//         }
+
+//         .nav-decor {
+//             font-size: .7em;
+//             // padding:  0;
+//         }
+
+//         .nav-link {
+//             padding: .3em;
+//             border-radius: .3em;
+//             cursor: pointer;
+//             text-decoration: none;
+//             color: inherit;
+
+//             &:hover {
+//                 background-color: var(--clr-border);
+//             }
+//         }
+
+//         hr { 
+//             color: var(--clr-separators);
+//             background: none;
+//             border: none;
+//         }
+//     }
+
+
+//     &.open {
+//         .nav-button {
+
+
+//             .cursor {
+//                 animation: none;
+//                 background-color: var(--clr-keys);
+//                 margin-left: auto;
+//             }
+//         }
+
+//         .nav-dropdown {
+//             width: 14.7em;
+//             height: 13.8em;
+//             padding: 0 .8em 1em;
+
+//             transition: height .2s ease, width .2s ease;
+
+
+//             > * {
+//                 opacity: 1;
+//                 transition: opacity .15s ease .2s;
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+// // Animations
+// @keyframes cursorBlink {
+//     0%, 100% {opacity: 1}
+//     50% {opacity: 0}
+// }
+
+
+
+// // Queries
+// @media screen and (max-width: 1150px) {
+//     .nav-container {
+//         font-size: 1.5rem;
+//         left: 2.2rem;
+//         top: 2.2rem;
+//     }
+// }
+// @media screen and (max-width: 950px) {
+    
+// }
+// @media screen and (max-width: 650px) {
+    
+// }
+// @media screen and (max-width: 520px) {
+//     .nav-container {
+//         left: 5vw;
+
+//         &.open{
+//             .nav-dropdown {
+//                 width: 88vw;
+//             }
+//         }
+        
+//     }
+// }

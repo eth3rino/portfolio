@@ -4,27 +4,39 @@
             ~ name
             <input type="text" [formField]="contactForm.name">
         </label>
+        @if (true) {
+            <!-- Add list of errors in this field -->
+        }
     </div>
     <div class="input-block">
         <label for="email">
             ~ email
             <input type="email" [formField]="contactForm.email">
         </label>
+        @if (true) {
+            <!-- Add list of errors in this field -->
+        }
     </div>
     <div class="input-block">
         <label for="subject">
             ~ subject
             <input type="text" [formField]="contactForm.subject">
         </label>
+        @if (true) {
+            <!-- Add list of errors in this field -->
+        }
     </div>
     <div class="input-block">
         <label for="message">
             ~ message
             <input type="text" [formField]="contactForm.message">
         </label>
+        @if (true) {
+            <!-- Add list of errors in this field -->
+        }
     </div>
     <div class="form-footer">
         <div class="form-footer-caption">// I'll reply within 24h</div>
-        <input type="submit">
+        <input type="submit" value="send">
     </div>
 </form>

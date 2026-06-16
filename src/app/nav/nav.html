@@ -1,4 +1,4 @@
-<div class="nav-container" [class.open]="isOpen">
+<!-- <div class="nav-container" [class.open]="isOpen">
     <button class="nav-button" (click)="toggleNav()">
         <span><b class="key">$</b> ./<b class="button-title rose">menu</b>.sh</span>
         <div class="cursor rose"></div>
@@ -13,4 +13,18 @@
         <a routerLink="/contact" class="nav-link"><span class="index">[04]</span><b class="rose">cd</b> ./<b class="value">contact</b></a>
         <hr class="footer">
     </div>
-</div>
+</div> -->
+
+
+<header class="nav-wrapper">
+    <nav class="nav-container">
+        <a routerLink="/home" class="nav-home link"><app-logo></app-logo></a>
+        <a routerLink="/home" fragment="about-me" class="link">about-me</a>
+        <div class="separator"></div>
+        <a routerLink="/projects" class="link">projects</a>
+        <div class="separator"></div>
+        <a routerLink="/lab" class="link">lab</a>
+        <div class="separator"></div>
+        <a routerLink="/home" fragment="contact" class="link contact">contact-me</a>
+    </nav>
+</header>
