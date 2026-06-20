@@ -1,42 +1,60 @@
-<form>
-    <div class="input-block">
-        <label for="name">
-            ~ name
-            <input type="text" [formField]="contactForm.name">
-        </label>
-        @if (true) {
-            <!-- Add list of errors in this field -->
-        }
-    </div>
-    <div class="input-block">
-        <label for="email">
-            ~ email
-            <input type="email" [formField]="contactForm.email">
-        </label>
-        @if (true) {
-            <!-- Add list of errors in this field -->
-        }
+<form class="contact-form">
+    <div class="top-inputs">
+        <div class="input-block">
+            <label for="name">
+                ~ name
+                <input type="text" placeholder="Your name" [formField]="contactForm.name">
+            </label>
+            <div class="error-container">
+                @if (contactForm.name().touched() && contactForm.name().invalid()) {
+                    @for (error of contactForm.name().errors(); track error.kind) {
+                        <span class="input-error">{{error.message}}</span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="input-block">
+            <label for="email">
+                ~ email
+                <input type="email" placeholder="your@email.com" [formField]="contactForm.email">
+            </label>
+            <div class="error-container">
+                @if (contactForm.email().touched() && contactForm.email().invalid()) {
+                    @for (error of contactForm.email().errors(); track error.kind) {
+                        <span class="input-error">{{error.message}}</span>
+                    }
+                }
+            </div>
+        </div>
     </div>
     <div class="input-block">
         <label for="subject">
             ~ subject
-            <input type="text" [formField]="contactForm.subject">
+            <input type="text" placeholder="What's this about?" [formField]="contactForm.subject">
         </label>
-        @if (true) {
-            <!-- Add list of errors in this field -->
-        }
+        <div class="error-container">
+            @if (contactForm.subject().touched() && contactForm.subject().invalid()) {
+                @for (error of contactForm.subject().errors(); track error.kind) {
+                    <span class="input-error">{{error.message}}</span>
+                }
+            }
+        </div>
     </div>
     <div class="input-block">
         <label for="message">
             ~ message
-            <input type="text" [formField]="contactForm.message">
+            <textarea class="message-input" placeholder="Tell me about your project, idea or question.." [formField]="contactForm.message"></textarea>
         </label>
-        @if (true) {
-            <!-- Add list of errors in this field -->
-        }
+        <div class="error-container">
+            @if (contactForm.message().touched() && contactForm.message().invalid()) {
+                @for (error of contactForm.message().errors(); track error.kind) {
+                    <span class="input-error">{{error.message}}</span>
+                }
+            }
+        </div>
     </div>
     <div class="form-footer">
-        <div class="form-footer-caption">// I'll reply within 24h</div>
-        <input type="submit" value="send">
+        <div class="form-footer-caption key">// I'll reply within 24h</div>
+        <input type="submit" value="send-message">
     </div>
 </form>

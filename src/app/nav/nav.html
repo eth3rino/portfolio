@@ -1,30 +1,43 @@
-<!-- <div class="nav-container" [class.open]="isOpen">
-    <button class="nav-button" (click)="toggleNav()">
-        <span><b class="key">$</b> ./<b class="button-title rose">menu</b>.sh</span>
-        <div class="cursor rose"></div>
-    </button>
-    <div class="nav-dropdown">
-        <hr>
-        <div class="nav-decor">elianmeaca@developer:~<b class="key">./menu.sh</b></div>
-        <a routerLink="/home" class="nav-link"><span class="index">[00]</span><b class="rose">cd</b> ./<b class="value">home</b></a>
-        <a routerLink="/projects" class="nav-link"><span class="index">[01]</span><b class="rose">cd</b> ./<b class="value">projects</b></a>
-        <a routerLink="/lab" class="nav-link"><span class="index">[02]</span><b class="rose">cd</b> ./<b class="value">lab</b></a>
-        <a routerLink="/about-me" class="nav-link"><span class="index">[03]</span><b class="rose">cd</b> ./<b class="value">about-me</b></a>
-        <a routerLink="/contact" class="nav-link"><span class="index">[04]</span><b class="rose">cd</b> ./<b class="value">contact</b></a>
-        <hr class="footer">
-    </div>
-</div> -->
-
-
 <header class="nav-wrapper">
-    <nav class="nav-container">
-        <a routerLink="/home" class="nav-home link"><app-logo></app-logo></a>
-        <a routerLink="/home" fragment="about-me" class="link">about-me</a>
-        <div class="separator"></div>
-        <a routerLink="/projects" class="link">projects</a>
-        <div class="separator"></div>
-        <a routerLink="/lab" class="link">lab</a>
-        <div class="separator"></div>
-        <a routerLink="/home" fragment="contact" class="link contact">contact-me</a>
+    <nav class="nav-container-desktop">
+        <a routerLink="/home" routerLinkActive="active-route" class="nav-home"><app-logo></app-logo></a>
+        <div class="nav-link-container">
+            <a routerLink="/projects" routerLinkActive="active-route" class="link">my-work</a>
+            <div class="separator"></div>
+            <a routerLink="/lab" routerLinkActive="active-route" class="link">  the-lab</a>
+            <div class="separator"></div>
+            <a routerLink="/home" fragment="about-me" [class.active-route]="activeFragment() == 'about-me'" class="link">about-me</a>
+            <div class="separator"></div>
+            <a routerLink="/home" fragment="contact-me" [class.active-route]="activeFragment() == 'contact-me'" class="link contact">contact-me</a>
+        </div>
+    </nav>
+    <nav class="nav-container-mobile" [class.open]="isNavOpen()">
+        <div class="nav-buttons">
+            <a routerLink="/home" routerLinkActive="active-route" class="nav-home" (click)="closeNav()">
+                <app-logo></app-logo>
+            </a>
+            <button class="nav-sandwich-menu" (click)="toggleNav()"><svg lucideMenu></svg></button>
+        </div>
+        <div class="nav-link-dropdown">
+            <div class="nav-label rose">~/navigate</div>    
+
+            <a routerLink="/projects" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" >[01]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">my-work</span></span></a>
+            <div class="separator"></div>
+            <a routerLink="/lab" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" >[02]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">lab</span></span></a>
+            <div class="separator"></div>
+            <a routerLink="/home" routerLinkActive="active-route" fragment="about-me" class="nav-link" (click)="closeNav()"><span class="index" >[03]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">about-me</span></span></a>
+            <div class="separator"></div>
+            <a routerLink="/home" routerLinkActive="active-route" fragment="contact-me" class="nav-link" (click)="closeNav()"><span class="index" >[04]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">contact</span></span></a>
+            <div class="nav-footer">
+                <div class="nav-footer-text">
+                    <span class="key">Buenos Aires, AR</span>
+                    <span class="key">elianmeaca@gmail.com</span>
+                </div>
+                <div class="nav-footer-links">
+                    <a href="" class="nav-github-link">github.com/etherino</a>
+                    <a href="" class="nav-linkedin-link">linkedin.com/in/elianmeaca</a>
+                </div>
+            </div>
+        </div>
     </nav>
 </header>

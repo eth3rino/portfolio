@@ -1,4 +1,39 @@
 .home-wrapper {
     height: 100%;
+
+
+    footer {
+        display: flex;
+        padding: 1.5em 8vw;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--clr-keys);
+        font-size: 1.2rem;
+        font-family: 'JetBrains Mono', monospace;
+
+        .site-name {
+            text-transform: capitalize;
+            width: 30%;
+        }
+        .scroll-to-top-button {
+            background: none;
+            border: 1px solid var(--clr-border);
+            padding: .6em .8em;
+            border-radius: .5em;
+            color: var(--clr-keys);
+            transition: .25s ease;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--clr-rose);
+                border: 1px solid var(--clr-rose);
+            }
+        }
+        .location {
+            text-transform: capitalize;
+            width: 30%;
+            text-align: end;
+        }
+    }
 }
 

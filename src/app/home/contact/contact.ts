@@ -8,4 +8,10 @@ import { LucideCopy } from '@lucide/angular';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {}
+export class Contact {
+
+  copyLink (link: string, e: Event): void {
+    e.preventDefault()
+    navigator.clipboard.writeText(link)
+  }
+}
