@@ -1,0 +1,30 @@
+<div class="featured-container">
+    <div class="featured-label key">// featured</div>
+    <div class="main-featured">
+        @for (card of mainCards(); track card.id) {
+            <div class="main-card-container" [style.--category-color]="getCategoryColor(card.category)">
+                <img class="card-image" [src]="card.image.src" [alt]="card.image.alt"/>
+                <div class="card-text">
+                    <div class="card-text-information">
+                        <span class="card-category">{{card.category}}</span>
+                        <span class="card-status key">{{card.status}}</span>
+                    </div>
+                    <h3 class="card-title value">{{card.title}}</h3>
+                    <p class="card-caption value">{{card.caption}}</p>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="small-featured">
+        @for (card of smallCards(); track card.id) { 
+            <div class="small-card-container" [style.--category-color]="getCategoryColor(card.category)">
+                <div class="card-text-information">
+                    <span class="card-category">{{card.category}}</span>
+                    <span class="card-status key">{{card.status}}</span>
+                </div>
+                <h4 class="card-title value">{{card.title}}</h4>
+                <p class="card-caption value">{{card.caption}}</p>
+            </div>
+        }
+    </div>
+</div>

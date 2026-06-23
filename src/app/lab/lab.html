@@ -1,1 +1,15 @@
-<p>lab works!</p>
+<section class="lab-wrapper">
+    <div class="lab-header">
+        <div class="header-text">
+            <div class="lab-label">~/lab</div>
+            <h2 class="lab-title value">Things I build for <span class="pink">fun</span>.</h2>
+        </div>
+        <div class="stats-container value">
+            <div class="stat entry-count">{{entryCount}}<span class="stat-label key">// <span class="pink">entries</span></span></div>
+            <div class="stat category-count">{{categoryCount}}<span class="stat-label key">// <span class="pink">categories</span></span></div>
+            <div class="stat in-progress-count">{{inProgressCount}}<span class="stat-label key">// <span class="pink">in progress</span></span></div>
+        </div>
+    </div>
+    <app-featured [mainCards]="mainCards" [smallCards]="smallCards"></app-featured>
+    <app-entry-grid [entries]="allEntries"></app-entry-grid>
+</section>

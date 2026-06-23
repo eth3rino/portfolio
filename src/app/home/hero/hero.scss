@@ -1,5 +1,5 @@
 .hero-container {
-    height: 100%;
+    min-height: 100svh;
     font-size: 1rem;
     position: relative;
     z-index: 1;
@@ -48,21 +48,27 @@
         }
 
 
-        .hero-about-me-button {
+        .hero-my-work-button {
             background-color: color-mix(in srgb, var(--clr-surface) 80%, transparent);
             transition: .2s ease-in-out;
             border-radius: .4em;
-            border: 3px solid var(--clr-border);
+            border: 2px solid var(--clr-border);
             text-decoration: none;
             padding: .5em 1em;
             display: inline-flex;
-            gap: .5em;
+            align-items: center;
             width: fit-content;
-            color: var(--clr-separators);
             font-size: 1.1rem;
+            svg {
+                height: 1em;
+                width: 1em;
+                margin-left: .5em;
+                color: var(--clr-values);
+            }
 
             &:hover {
-                border: 3px solid var(--clr-separators)
+                color: var(--clr-values);
+                border: 2px solid var(--clr-rose)
             } 
         }
     }

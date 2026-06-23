@@ -1,14 +1,14 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { LucideArrowLeft, LucideArrowRight, LucideChevronLeft, LucideChevronRight } from '@lucide/angular';
+import { LucideArrowLeft, LucideArrowRight } from '@lucide/angular';
 
 @Component({
-  selector: 'app-projects-showcase',
+  selector: 'app-work-showcase',
   imports: [RouterLink, LucideArrowRight, LucideArrowLeft],
-  templateUrl: './projects-showcase.html',
-  styleUrl: './projects-showcase.scss',
+  templateUrl: './work-showcase.html',
+  styleUrl: './work-showcase.scss',
 })
-export class ProjectsShowcase implements AfterViewInit, OnDestroy{
+export class WorkShowcase implements AfterViewInit, OnDestroy{
 
   projects: Project[] = [
     {

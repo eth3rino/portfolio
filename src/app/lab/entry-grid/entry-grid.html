@@ -1,0 +1,21 @@
+<div class="entry-grid value">
+    <div class="grid-header">
+        <div class="grid-categories">
+            <button class="categoryFilter" [class.active]="activeCategory() === 'all'" style="--category-color: var(--clr-values)" (click)="setCategoryFilter('all')">all</button>
+            @for (category of availableCategories(); track $index) {
+                <button class="categoryFilter" [class.active]="activeCategory() === category" [style.--category-color]="getCategoryColor(category)" (click)="setCategoryFilter(category)">{{category}}</button>
+            }
+        </div>
+        <div class="entry-count pink">{{entriesMatchingCategoryCount()}} <span class="key">entries</span></div>
+    </div>
+    <div class="grid-container">
+        @for (entry of filteredEntries(); track entry.id) {
+            <div class="grid-entry" [class.filtered-out]="checkMatchingCategory(entry.category)" [style.--category-color]="getCategoryColor(entry.category)">
+                <div class="entry-category">{{entry.category}}</div>
+                <div class="entry-title">{{entry.title}}</div>
+                <div class="entry-caption">{{entry.caption}}</div>
+                <div class="entry-status">{{entry.status}}</div>
+            </div>
+        }
+    </div>
+</div>
