@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import {form, FormField, required, email, debounce} from '@angular/forms/signals'
+import { ScrollReveal } from '../../../directives/scroll-reveal';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [FormField],
+  imports: [FormField, ScrollReveal],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })

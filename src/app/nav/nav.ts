@@ -17,11 +17,11 @@ export class Nav {
   isNavOpen: WritableSignal<boolean> = signal(false);
   
   toggleNav () { 
-    this.isNavOpen.set(!this.isNavOpen()) 
+    this.isNavOpen.update((isNavOpen) => !isNavOpen) 
   }
 
   closeNav () {
-    this.isNavOpen.set(false)
+    this.isNavOpen.update(() => false)
   }
 
   activeFragment() {

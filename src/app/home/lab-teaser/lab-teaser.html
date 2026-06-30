@@ -1,28 +1,18 @@
 <section class="lab-teaser" aria-label="A teaser of my lab">
-    <div class="lab-teaser-header">
-        <div class="lab-teaser-label rose" aria-hidden="true">~/lab</div>
-        <h2 class="lab-teaser-title value">What I do for <span class="rose">fun</span>.</h2>
+    <div class="lab-teaser-header" appScrollReveal [animationType]="'fade-left'">
+        <div class="lab-teaser-label pink" aria-hidden="true">~/lab</div>
+        <h2 class="lab-teaser-title value">What I do for <span class="pink">fun</span>.</h2>
         <p class="lab-teaser-caption value">A space for experiments, side projects, and things that don't fit anywhere else — design, code, hardware.</p>
-        <a routerLink="/lab" class="lab-link" aria-label="Visit the lab">cd ./<span class="rose">lab</span> <svg lucideArrowRight></svg></a>
+        <a routerLink="/lab" class="lab-link" aria-label="Visit the lab">cd ./<span class="pink">lab</span> <svg lucideArrowRight></svg></a>
     </div>
     <div class="teaser-group-container">
-        <a class="teaser-container" routerLink="/lab" aria-label="View this entry">
-            <span class="teaser-category pink" aria-label="Design project">design</span>
-            <div class="teaser-title value">tokyo night portfolio theme</div>
-            <div class="teaser-description key">Building a terminal aesthetic theme for my personal portfolio</div>
-            <svg lucideArrowRight></svg>
-        </a>
-        <a class="teaser-container" routerLink="/lab" aria-label="View this entry">
-            <span class="teaser-category gold" aria-label="Coding project">code</span>
-            <div class="teaser-title value">nixos dotfiles</div>
-            <div class="teaser-description key">Fully reproducible declarative system configuration with flakes and home-manager</div>
-            <svg lucideArrowRight></svg>
-        </a>
-        <a class="teaser-container" routerLink="/lab" aria-label="View this entry">
-            <span class="teaser-category rose" aria-label="Hardware project">hardware</span>
-            <div class="teaser-title value">custom large-format 3d printer</div>
-            <div class="teaser-description key">Custom design large-format printer built from scratch for signage production.</div>
-            <svg lucideArrowRight></svg>
-        </a>
+        @for (entry of selectedEntries; track $index) {
+            <a class="teaser-container" [routerLink]="['/lab', entry.id]" aria-label="View this entry" [style.--category-color]="getCategoryColor(entry.category)" appScrollReveal [animationType]="'fade-up'" [animationDelay]="200 * $index">
+                <span class="teaser-category rose" aria-label="Design project">{{entry.category}}</span>
+                <div class="teaser-title value">{{entry.title}}</div>
+                <div class="teaser-description key">{{entry.caption}}</div>
+                <svg lucideArrowRight></svg>
+            </a>
+        }
     </div>
 </section>

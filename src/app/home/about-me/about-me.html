@@ -1,5 +1,5 @@
 <section class="about-me" aria-label="about me" id="about-me">
-    <div class="about-me-left">
+    <div class="about-me-left" appScrollReveal [animationType]="'fade-left'">
         <div class="about-me-title rose" aria-hidden="true">~/about-me</div>
         <h2 class="about-me-oneliner">Building things that <span class="rose">last</span>.</h2>
         <p class="about-me-description">I'm a fullstack developer based in Buenos Aires, Argentina. I care deeply about building things that are both functional and beautiful — code that works well and feels intentional.</p>
@@ -10,7 +10,7 @@
             <li class="info-item"><span class="key"><span aria-hidden="true">~</span> status</span><span class="item" aria-hidden="true"></span><span class="value">Available</span></li>
         </ul>
     </div>
-    <div class="about-me-right">
+    <div class="about-me-right" appScrollReveal [animationType]="'fade-left'" [animationDelay]="'200ms'">
         <app-terminal></app-terminal>
     </div>
 </section>

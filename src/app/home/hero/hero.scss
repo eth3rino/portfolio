@@ -8,12 +8,7 @@
 
     padding: 0 8vw;
 
-    font-family: 'jetbrains mono';
-    // font-family: 'ibm plex mono';
-    // font-family: 'space mono';
-    // font-family: 'source code pro';
-    // font-family: 'anonymous pro';
-
+    font-family: 'JetBrains Mono', monospace;
 
     display: flex;
     flex-direction: column;
@@ -28,11 +23,11 @@
 
 
         .greeting {
-            font-size: 1.2em;
+            letter-spacing: 1px;
         }
 
         .hero-name {
-            font-size: clamp(2.5rem, 8vw ,8rem);
+            font-size: clamp(2.5rem, 8vw ,6rem);
         }
 
         .separator {
@@ -43,7 +38,6 @@
 
         .hero-description {
             max-width: 50ch;
-            font-size: 1.2em;
             line-height: 1.7;
         }
 
@@ -58,7 +52,7 @@
             display: inline-flex;
             align-items: center;
             width: fit-content;
-            font-size: 1.1rem;
+            font-size: 1em;
             svg {
                 height: 1em;
                 width: 1em;

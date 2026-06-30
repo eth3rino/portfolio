@@ -11,7 +11,7 @@
 }
 
 :root {
-    font-size: clamp(10px, .8vw, 38px);
+    font-size: clamp(10px, 1vw, 38px);
 
     scroll-behavior: smooth;
 }
@@ -31,7 +31,8 @@ html, body {
     --clr-rose: #c4a7b7;
     --clr-gold: #e0af68;
     --clr-pink: #f7768e;
-
+    --clr-foam: #7dcfff;
+    --clr-green: #9ece6a;
 }
 
 .separator {color: var(--clr-separators)}
@@ -40,3 +41,112 @@ html, body {
 .rose {color: var(--clr-rose);}
 .gold {color: var(--clr-gold)}
 .pink {color: var(--clr-pink);}
+.foam {color: var(--clr-foam);}
+.green {color: var(--clr-green)}
+
+h1[tabindex="-1"]:focus {
+  outline: none;
+}
+
+
+
+.wipe-bar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14px;
+  background: var(--clr-rose);
+  box-shadow: 0 0 24px 4px var(--clr-rose);
+  pointer-events: none;
+  z-index: 9999;
+  contain: layout;
+  view-transition-name: wipe-bar;
+  transform: translateX(-40px);
+}
+
+/* New page wipes in from left */
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: wipe-in 700ms cubic-bezier(.65, 0, .35, 1) both;
+}
+
+@keyframes wipe-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* Bar sweeps across as its own named element */
+::view-transition-old(wipe-bar),
+::view-transition-new(wipe-bar) {
+  animation: bar-sweep 700ms cubic-bezier(.65, 0, .35, 1) both;
+}
+
+@keyframes bar-sweep {
+  from { transform: translateX(-40px); }
+  to   { transform: translateX(calc(100vw + 14px)); }
+}
+
+::view-transition-image-pair(wipe-bar) {
+  isolation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(wipe-bar),
+  ::view-transition-new(wipe-bar) {
+    animation: none;
+  }
+}
+
+.wipe-reverse {
+  &::view-transition-old(root) {
+    animation: none;
+  }
+  &::view-transition-new(root) {
+    animation: wipe-in-reverse 700ms cubic-bezier(.65, 0, .35, 1) both;
+  }
+  &::view-transition-old(wipe-bar),
+  &::view-transition-new(wipe-bar) {
+    animation: bar-sweep-reverse 700ms cubic-bezier(.65, 0, .35, 1) both;
+  }
+}
+
+@keyframes wipe-in-reverse {
+  from { clip-path: inset(0 0 0 100%); }
+  to   { clip-path: inset(0 0 0 0%); }
+}
+
+@keyframes bar-sweep-reverse {
+  from { transform: translateX(calc(100vw + 14px)); }
+  to   { transform: translateX(-40px); }
+}
+
+
+
+
+
+[appScrollReveal] {
+  transition: opacity 600ms ease, transform 600ms ease;
+  opacity: 0;
+
+  &.reveal-fade-up {
+    transform: translateY(24px);
+    &.revealed { opacity: 1; transform: translateY(0); }
+  }
+
+  &.reveal-fade-left {
+    transform: translateX(-32px);
+    &.revealed { opacity: 1; transform: translateX(0); }
+  }
+
+  &.reveal-scale-in {
+    transform: scale(0.92);
+    &.revealed { opacity: 1; transform: scale(1); }
+  }
+}
+

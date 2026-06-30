@@ -8,21 +8,7 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    isolation: isolate;
-    // &::before {
-    //     content: '';
-    //     height: 80vw;
-    //     width: 80vw;
-    //     border-radius: 100%;
-    //     background-color: var(--clr-pink);
-    //     filter: blur(100px);
-    //     opacity: .15;
-
-    //     position: absolute;
-    //     z-index: -1;
-    //     left: -20%;
-    //     top: -50%;
-    // }
+    // isolation: isolate;
 
     .lab-header {
         display: flex;

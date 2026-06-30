@@ -25,7 +25,7 @@ export interface LabEntry {
 export interface FeaturedEntry extends SmallFeaturedEntry{
   image: {
     src: string;
-    alt: string;  
+    alt: string;
   }
 }
 export interface SmallFeaturedEntry {
@@ -79,19 +79,19 @@ export const LAB_ENTRIES: LabEntry[] = [
   },
 ];
 
-export const featuredEntries: FeaturedEntries = {
+export const FEATURED_ENTRIES: FeaturedEntries = {
   mainEntries: [
     {
       id: 'custom-large-format-3d-printer',
       image: {
-        src: '3d-printer-lab.jpg',
+        src: 'lab/custom-large-format-3d-printer/printer-blueprint.png',
         alt: 'Custom large-format 3D printer with CoreXY motion system',
       },
     },
     {
       id: 'custom-mechanical-keyboard',
       image: {
-        src: 'handwired-keyboard.jpg',
+        src: 'lab/custom-mechanical-keyboard/keyboard-blueprint.png',
         alt: 'Hand-wired custom mechanical keyboard, 65 percent layout',
       },
     },

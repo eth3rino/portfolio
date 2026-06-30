@@ -4,7 +4,7 @@
     color: var(--clr-values);
 
     position: fixed;
-    z-index: 1000;
+    z-index: 9999999;
     
     width: 100%;
     height: 100%;
@@ -24,7 +24,7 @@
         height: 6em;
         width: 100%;
 
-        background-color: color-mix(in srgb, var(--clr-surface) 50%, transparent);
+        background-color: color-mix(in srgb, var(--clr-surface) 70%, transparent);
         backdrop-filter: blur(5px);
         padding: 1.5em 3em;
 

@@ -1,49 +1,25 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, signal, ViewChild, WritableSignal} from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { LucideArrowLeft, LucideArrowRight } from '@lucide/angular';
+import { ALL_WORKS, HOME_FEATURED_WORKS, HomeFeaturedWork, Work } from '../../my-work/work-data/work-data';
+import { ScrollReveal } from '../../directives/scroll-reveal';
 
 @Component({
   selector: 'app-work-showcase',
-  imports: [RouterLink, LucideArrowRight, LucideArrowLeft],
+  imports: [RouterLink, LucideArrowRight, LucideArrowLeft, ScrollReveal],
   templateUrl: './work-showcase.html',
   styleUrl: './work-showcase.scss',
 })
 export class WorkShowcase implements AfterViewInit, OnDestroy{
 
-  projects: Project[] = [
-    {
-      index: '01',
-      title: 'Fullstack Notes Platform',
-      description: 'A fullstack application built with Angular, NestJS and PostgreSQL featuring JWT authentication, role-based access, category management, archiving and filtering. Built as a technical assessment — focused on clean architecture and scalable patterns.',
-      type: 'Fullstack Application',
-      stack: 'Angular · NestJS · PostgreSQL',
-      status: 'Completed',
-      tags: ['Angular', 'NestJS', 'PostgreSQL'],
-      link: '/projects',
-    },
-    {
-      index: '02',
-      title: 'Declarative system configuration',
-      description: 'A fully reproducible NixOS setup using flakes and home-manager. Declarative dotfiles, custom shell environment and a riced desktop — everything version controlled and reproducible from scratch.',
-      type: 'System configuration',
-      stack: 'NixOS · Nix Flakes · home-manager',
-      status: 'Ongoing',
-      tags: ['NixOS', 'Nix Flakes', 'home-manager'],
-      link: '/projects',
-    },
-    {
-      index: '03',
-      title: 'Realtime System Monitor',
-      description: 'A WebSocket-powered dashboard for monitoring system metrics in real time. A Rust CLI backend feeds live data to an Angular frontend via NestJS — CPU, memory, disk and network at a glance.',
-      type: 'Realtime Dashboard',
-      stack: 'Angular · NestJS · Rust',
-      status: 'In Progress',
-      tags: ['Angular', 'NestJS', 'Rust'],
-      link: '/projects',
-    }
-  ]
+  readonly selectedWorks: HomeFeaturedWork[] = HOME_FEATURED_WORKS;
+  readonly featuredWorks: Work[] = this.selectedWorks.map((selection): Work | undefined => {
+    const selectionMatch = ALL_WORKS.find((e) => e.id === selection.id)
+    return selectionMatch ? selectionMatch : undefined;
+  }).filter((work): work is Work => work !== undefined);
 
-  totalSlides: number = this.projects.length + 1
+
+  totalSlides: number = this.featuredWorks.length + 1
 
   currentIndex: WritableSignal<number> = signal(0)
 

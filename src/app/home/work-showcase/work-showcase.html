@@ -1,9 +1,9 @@
-<section class="projects-showcase" aria-label="my projects showcase">
-    <div class="projects-showcase-title rose" aria-hidden="true">~/my-work</div>
-    <h2 class="projects-showcase-oneliner value ">Things I've <span class="rose">built</span>.</h2>
+<section class="projects-showcase" aria-label="my projects showcase" appScrollReveal [animationType]="'fade-left'">
+    <div class="projects-showcase-title gold" aria-hidden="true">~/my-work</div>
+    <h2 class="projects-showcase-oneliner value ">Things I've <span class="gold">built</span>.</h2>
     <div class="projects-slider-controls">
         <div class="projects-slider-guide" aria-hidden="true">
-            @for (project of projects; track $index) {
+            @for (project of selectedWorks; track $index) {
                 <div class="guide-dot" (click)="setCurrentIndexTo($index)" [class.active]="$index == currentIndex()"></div>
             }
             <div class="guide-dot" (click)="setCurrentIndexTo(totalSlides - 1)" [class.active]="currentIndex() == totalSlides - 1"></div>
@@ -15,9 +15,9 @@
     </div>
 
     <div class="projects-slider-container" #slideContainer>
-        @for (project of projects; track $index) {
+        @for (project of featuredWorks; track $index) {
             <div class="project-slide">
-                <div class="slide-left">
+                <div class="slide-left" appScrollReveal [animationType]="'fade-up'">
                     <ul class="details-container" aria-label="Project details:">
                         <li class="details-title key" aria-hidden="true">// details</li>
                         <li class="details-block" aria-label="Project type: {{project.type}}">
@@ -25,9 +25,9 @@
                             <span class="value" aria-hidden="true">{{project.type}}</span>
                         </li>
                         <li class="separator" aria-hidden="true"></li>
-                        <li class="details-block" aria-label="Project stack: {{project.stack}}">
+                        <li class="details-block" aria-label="Project stack: {{project.tags.join(', ')}}">
                             <span class="key" aria-hidden="true">~ stack</span>
-                            <span class="value" aria-hidden="true">{{project.stack}}</span>
+                            <span class="value" aria-hidden="true">{{project.tags.join(' - ')}}</span>
                         </li>
                         <li class="separator" aria-hidden="true"></li>
                         <li class="details-block" aria-label="Project status: {{project.status}}">
@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="slide-right">
+                <div class="slide-right" appScrollReveal [animationType]="'fade-up'" [animationDelay]="100">
                     <div class="project-index key" aria-hidden="true">// {{project.index}}</div>
                     <h3 class="project-title value">{{project.title}}</h3>
                     <div class="separator" aria-hidden="true"></div>
@@ -46,15 +46,15 @@
                             <span class="tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</span>
                         }
                     </div>
-                    <a [routerLink]="project.link" class="project-link" aria-label="View {{project.title}} project">./<span class="rose">view-project</span>.sh <svg lucideArrowRight></svg></a>
+                    <a routerLink="/work" [fragment]="project.index" class="project-link" aria-label="View {{project.title}} project">./<span class="gold">view-project</span>.sh <svg lucideArrowRight></svg></a>
                 </div>
             </div>
         }
         <div class="project-slide last-slide">
-            <div class="last-slide-label rose" aria-hidden="true">that's not all</div>
-            <h3 class="last-slide-title">There's <span class="rose">more</span> where that came from.</h3>
+            <div class="last-slide-label gold" aria-hidden="true">that's not all</div>
+            <h3 class="last-slide-title">There's <span class="gold">more</span> where that came from.</h3>
             <div class="last-slide-subtext">View the full list of projects and their documentation.</div>
-            <a routerLink="/projects" class="last-slide-link" aria-label="View all projects">cd ./<span class="rose">projects →</span></a>
+            <a routerLink="/projects" class="last-slide-link" aria-label="View all projects">cd ./<span class="gold">projects →</span></a>
         </div>
     </div>
 </section>

@@ -54,7 +54,7 @@
                 transition: .15s ease;
 
                 &.active {
-                    background-color: var(--clr-rose);
+                    background-color: var(--clr-gold);
                     scale: 1.2;
                 }
             }
@@ -86,8 +86,8 @@
                 }
 
                 &:hover {
-                    color: var(--clr-rose);
-                    border: 1px solid var(--clr-rose);
+                    color: var(--clr-gold);
+                    border: 1px solid var(--clr-gold);
                 }
 
                 &.invalid {
@@ -190,7 +190,7 @@
                     
                     color: var(--clr-border);
                     text-decoration: none;
-                    font-size: 1.2em;
+                    font-size: 1em;
 
                     transition: .25s ease;
                     
@@ -203,7 +203,7 @@
                     }
 
                     &:hover {
-                        color: var(--clr-rose);
+                        color: var(--clr-gold);
                         span { color: var(--clr-values)}
                     }
                 }
@@ -244,7 +244,7 @@
                 }
 
                 .last-slide-subtext {
-                    font-size: 1.2em;
+                    font-size: 1em;
                     text-align: center;
                     line-height: 1.5em;
                 }
@@ -260,8 +260,8 @@
                     cursor: pointer;
 
                     &:hover {
-                        color: var(--clr-rose);
-                        border: 1px solid var(--clr-rose);
+                        color: var(--clr-gold);
+                        border: 1px solid var(--clr-gold);
 
                         span {
                             color: var(--clr-values);

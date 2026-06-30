@@ -1,9 +1,11 @@
 import { Component, input } from '@angular/core';
 import { CATEGORY_COLORS, FeaturedCard, LabCategory, LabEntry } from '../lab-data/lab-data';
+import { RouterLink } from '@angular/router';
+import { ScrollReveal } from '../../directives/scroll-reveal';
 
 @Component({
   selector: 'app-featured',
-  imports: [],
+  imports: [RouterLink, ScrollReveal],
   templateUrl: './featured.html',
   styleUrl: './featured.scss',
 })

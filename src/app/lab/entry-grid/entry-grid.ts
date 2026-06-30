@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, computed, input, Signal, signal, WritableSignal } from '@angular/core';
 import { CATEGORY_COLORS, LabCategory, LabEntry } from '../lab-data/lab-data';
+import { RouterLink } from '@angular/router';
+import { ScrollReveal } from '../../directives/scroll-reveal';
 
 @Component({
   selector: 'app-entry-grid',
-  imports: [],
+  imports: [RouterLink, ScrollReveal],
   templateUrl: './entry-grid.html',
   styleUrl: './entry-grid.scss',
 })

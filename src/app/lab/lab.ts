@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CATEGORY_COLORS, FeaturedCard, FeaturedEntries, featuredEntries, FeaturedEntry, LAB_CATEGORIES, LAB_ENTRIES, LabCategory, LabEntry } from './lab-data/lab-data';
+import { CATEGORY_COLORS, FeaturedCard, FeaturedEntries, FEATURED_ENTRIES, FeaturedEntry, LAB_CATEGORIES, LAB_ENTRIES, LabCategory, LabEntry } from './lab-data/lab-data';
 import { EntryGrid } from './entry-grid/entry-grid';
 import { Featured } from './featured/featured';
 
@@ -11,17 +11,17 @@ import { Featured } from './featured/featured';
   styleUrl: './lab.scss',
 })
 export class Lab {
-  featuredEntries: FeaturedEntries = featuredEntries;
+  readonly featuredEntries: FeaturedEntries = FEATURED_ENTRIES;
   readonly allEntries: LabEntry[] = LAB_ENTRIES;
 
-  readonly mainCards: FeaturedCard[] = featuredEntries.mainEntries
+  readonly mainCards: FeaturedCard[] = this.featuredEntries.mainEntries
     .map((selection): FeaturedCard | undefined => {
       const entry = this.allEntries.find((e) => e.id === selection.id);
       return entry ? { ...entry, image: selection.image } : undefined;
     })
     .filter((card): card is FeaturedCard => card !== undefined);
 
-  readonly smallCards: LabEntry[] = featuredEntries.smallEntries
+  readonly smallCards: LabEntry[] = this.featuredEntries.smallEntries
     .map((selection): LabEntry | undefined => {
       const entry = this.allEntries.find((e) => e.id === selection.id);
       return entry ? entry : undefined;

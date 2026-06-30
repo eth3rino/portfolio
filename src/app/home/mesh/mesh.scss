@@ -58,3 +58,8 @@
   75%  { transform: translate(40vw, 30vh); background-color: var(--clr-gold);}
   100% { transform: translate(0, 0); background-color: var(--clr-rose);}
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh, .blob { animation: none; }
+}

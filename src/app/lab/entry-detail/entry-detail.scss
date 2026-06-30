@@ -1,0 +1,60 @@
+.entry-detail-wrapper::ng-deep {
+    padding: 8rem 4vw;
+    margin: 0 4vw;
+    border-left: 1px solid var(--clr-border);
+    border-right: 1px solid var(--clr-border);
+
+    background-color: var(--clr-surface);
+
+    color: var(--clr-values);
+    font-size: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: calc(100svh - 6.7rem);
+
+    .entry-header {
+        .go-back-link {
+            border: 1px solid var(--clr-separators);
+            color: var(--clr-keys);
+            padding: .5em;
+            font-size: 1.5em;
+            display: inline-flex;
+
+            transition: .25s ease;
+            &:hover {
+                border: 1px solid var(--clr-rose);
+                color: var(--clr-rose);
+            }
+            
+            svg {
+                width: 1em;
+                height: 1em;
+                color: inherit;
+            }
+        }
+    }
+
+    h1 {
+        padding: 1em 0;
+        font-size: 3em;
+        color: var(--clr-rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    h2 {
+        padding: 1.5em 0 .3em;
+        color: var(--clr-rose);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    ul {
+        padding: .5em 2em;
+        display: grid;
+        gap: .2em;
+    }
+}
+
+
