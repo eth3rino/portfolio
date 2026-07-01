@@ -1,34 +1,34 @@
 <header class="nav-wrapper">
     <nav class="nav-container-desktop">
-        <a routerLink="/home" routerLinkActive="active-route" class="nav-home"><app-logo></app-logo></a>
+        <a routerLink="/home" routerLinkActive="active-route" class="nav-home" aria-label="Go to home page"><app-logo></app-logo></a>
         <div class="nav-link-container">
-            <a routerLink="/work" routerLinkActive="active-route" class="link">my-work</a>
+            <a routerLink="/work" routerLinkActive="active-route" class="link" aria-label="">my-work</a>
             <div class="separator"></div>
-            <a routerLink="/lab" routerLinkActive="active-route" class="link">  the-lab</a>
+            <a routerLink="/lab" routerLinkActive="active-route" class="link" aria-label="">  the-lab</a>
             <div class="separator"></div>
-            <a routerLink="/home" fragment="about-me" [class.active-route]="activeFragment() == 'about-me'" class="link">about-me</a>
+            <a routerLink="/home" fragment="about-me" [class.active-route]="activeFragment() == 'about-me'" class="link" aria-label="">about-me</a>
             <div class="separator"></div>
-            <a routerLink="/home" fragment="contact-me" [class.active-route]="activeFragment() == 'contact-me'" class="link contact">contact-me</a>
+            <a routerLink="/home" fragment="contact-me" [class.active-route]="activeFragment() == 'contact-me'" class="link contact" aria-label="">contact-me</a>
         </div>
     </nav>
     <nav class="nav-container-mobile" [class.open]="isNavOpen()">
         <div class="nav-buttons">
-            <a routerLink="/home" routerLinkActive="active-route" class="nav-home" (click)="closeNav()">
+            <a routerLink="/home" routerLinkActive="active-route" class="nav-home" aria-label="Go to home page" (click)="closeNav()">
                 <app-logo></app-logo>
             </a>
-            <button class="nav-sandwich-menu" (click)="toggleNav()"><svg lucideMenu></svg></button>
+            <button class="nav-sandwich-menu" (click)="toggleNav()" aria-hidden="true"><svg lucideMenu></svg></button>
         </div>
         <div class="nav-link-dropdown">
-            <div class="nav-label rose">~/navigate</div>    
+            <div class="nav-label rose" aria-hidden="true">~/navigate</div>    
 
-            <a routerLink="/work" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" >[01]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">my-work</span></span></a>
+            <a routerLink="/work" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" aria-label="See my work page">[01]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">my-work</span></span></a>
             <div class="separator"></div>
-            <a routerLink="/lab" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" >[02]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">lab</span></span></a>
+            <a routerLink="/lab" routerLinkActive="active-route" class="nav-link" (click)="closeNav()"><span class="index" aria-label="See the lab page">[02]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">lab</span></span></a>
             <div class="separator"></div>
-            <a routerLink="/home" routerLinkActive="active-route" fragment="about-me" class="nav-link" (click)="closeNav()"><span class="index" >[03]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">about-me</span></span></a>
+            <a routerLink="/home" routerLinkActive="active-route" fragment="about-me" class="nav-link" (click)="closeNav()" aria-label="Know more about me"><span class="index" >[03]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">about-me</span></span></a>
             <div class="separator"></div>
-            <a routerLink="/home" routerLinkActive="active-route" fragment="contact-me" class="nav-link" (click)="closeNav()"><span class="index" >[04]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">contact</span></span></a>
-            <div class="nav-footer">
+            <a routerLink="/home" routerLinkActive="active-route" fragment="contact-me" class="nav-link" (click)="closeNav()" aria-label="Contact me"><span class="index" >[04]</span><span class="link-command rose">cd</span><span> ./<span class="link-value value">contact</span></span></a>
+            <div class="nav-footer" aria-hidden="true">
                 <div class="nav-footer-text">
                     <span class="key">Buenos Aires, AR</span>
                     <span class="key">elianmeaca@gmail.com</span>

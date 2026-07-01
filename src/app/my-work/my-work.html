@@ -1,6 +1,6 @@
-<div class="work-wrapper">
+<section class="work-wrapper">
     <div class="work-header">
-        <div class="header-label">~/my-work</div>
+        <div class="header-label" aria-hidden="true">~/my-work</div>
         <h1 class="header-title">Things I've <span class="gold">built</span>.</h1>
         <p class="header-caption">Production-ready work — APIs, fullstack apps, and web projects built with care.</p>
     </div>
@@ -8,13 +8,13 @@
     <div class="work-container-wrapper">
         @for (work of allWorks; track $index) {
             <div class="work-container" [id]="work.index">
-                <div class="work-index"><span class="index">//{{work.index}}</span></div>
+                <div class="work-index" aria-hidden="true"><span class="index">//{{work.index}}</span></div>
                 <div class="work-images">
                     <!-- If has UI -->
                     <!-- @if (work.scope !== 'backend') { -->
                     @if (work.isWebsite) {
                         <div class="desktop-container">
-                            <div class="desktop-header">
+                            <div class="desktop-header" aria-hidden="true">
                                 <div class="browser-circles">
                                     <div class="circle rose"></div>
                                     <div class="circle pink"></div>
@@ -27,11 +27,11 @@
                             </div>
                             <img [src]="work.image?.src" [alt]="work.image?.alt">
                             <div class="mobile-container">
-                                <div class="mobile-header">
+                                <div class="mobile-header" aria-hidden="true">
                                     <div class="center-decoration"></div>
                                 </div>
                                 <img [src]="work.imageMobile?.src" [alt]="work.imageMobile?.alt">
-                                <div class="mobile-bottom"></div>
+                                <div class="mobile-bottom" aria-hidden="true"></div>
                             </div>
                         </div>
                         
@@ -39,32 +39,32 @@
                     <!-- Else  -->
                     @else {
                         <div class="api-container">
-                            <img [src]="work.image?.src" [alt]="work.image?.src">
+                            <img [src]="work.image?.src" [alt]="work.image?.alt">
                         </div>
                     }
                 </div>
                 <div class="work-text">
-                    <div class="work-label">//{{work.scope}}</div>
-                    <div class="work-title">{{work.title}}</div>
-                    <div class="work-caption">{{work.description}}</div>
-                    <div class="separator"></div>
+                    <p class="work-label" [aria-label]="`scope: ${work.scope}`">//{{work.scope}}</p>
+                    <h2 class="work-title">{{work.title}}</h2>
+                    <p class="work-caption">{{work.description}}</p>
+                    <div class="separator" aria-hidden="true"></div>
                     <div class="work-data">
-                        <div class="work-type">~ type: {{work.type}}</div>
-                        <div class="work-status">~ status: {{work.status}}</div>
-                        <div class="work-stack">
+                        <span class="work-type" [aria-label]="`type: ${work.type}`">~ type: {{work.type}}</span>
+                        <span class="work-status" [aria-label]="`status: ${work.status}`">~ status: {{work.status}}</span>
+                        <div class="work-stack" aria-label="The stack I used in this project:">
                             @for (tag of work.tags; track $index) {
-                                <div class="work-tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</div>
+                                <span class="work-tag" [style.--tag-color]="getTagColor(tag)">{{tag}}</span>
                             }
                         </div>
                     </div>
                     <div class="work-link-container">
-                        <a class="work-link" [href]="work.linkToSource">
+                        <a class="work-link" [href]="work.linkToSource" aria-label="See source code" target="_blank" rel="noopener noreferrer">
                             <div class="link-text"><span class="key">cd</span>./<span class="gold key-text">source-code</span><svg lucideArrowRight></svg></div>
                         </a>
                     <!-- if live website -->
                         @if (work.linkToLiveWebsite) {
-                            <a class="work-link" [href]="work.linkToLiveWebsite">
-                                <div class="link-text">./<span class="gold key-text">live-website</span><svg lucideArrowRight></svg></div>
+                            <a class="work-link" [href]="work.linkToLiveWebsite" aria-label="See live website" target="_blank" rel="noopener noreferrer">
+                                <span class="link-text"><span class="gold key-text">live-website</span><svg lucideArrowRight></svg></span>
                             </a>
                         }
                     </div>
@@ -73,4 +73,4 @@
             </div>
         }
     </div>
-</div>
+</section>

@@ -87,7 +87,7 @@ h1[tabindex="-1"]:focus {
 
 @keyframes bar-sweep {
   from { transform: translateX(-40px); }
-  to   { transform: translateX(calc(100vw + 14px)); }
+  to   { transform: translateX(calc(100vw + 60px)); }
 }
 
 ::view-transition-image-pair(wipe-bar) {
@@ -122,7 +122,7 @@ h1[tabindex="-1"]:focus {
 }
 
 @keyframes bar-sweep-reverse {
-  from { transform: translateX(calc(100vw + 14px)); }
+  from { transform: translateX(calc(100vw + 40px)); }
   to   { transform: translateX(-40px); }
 }
 
@@ -147,6 +147,12 @@ h1[tabindex="-1"]:focus {
   &.reveal-scale-in {
     transform: scale(0.92);
     &.revealed { opacity: 1; transform: scale(1); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [appSrollReveal] {
+    transition: 0s;
   }
 }
 

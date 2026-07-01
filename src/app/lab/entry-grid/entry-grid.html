@@ -1,6 +1,6 @@
-<div class="entry-grid value" appScrollReveal>
+<div class="entry-grid value" appScrollReveal aria-label="All lab entries">
     <div class="grid-header">
-        <div class="grid-categories">
+        <div class="grid-categories" aria-label="Entry category filters">
             <button class="categoryFilter" [class.active]="activeCategory() === 'all'" style="--category-color: var(--clr-values)" (click)="setCategoryFilter('all')">all</button>
             @for (category of availableCategories(); track $index) {
                 <button class="categoryFilter" [class.active]="activeCategory() === category" [style.--category-color]="getCategoryColor(category)" (click)="setCategoryFilter(category)">{{category}}</button>
@@ -11,10 +11,10 @@
     <div class="grid-container" appScrollReveal>
         @for (entry of filteredEntries(); track $index) {
             <a class="grid-entry" [routerLink]="['/lab', entry.id]" [class.filtered-out]="checkMatchingCategory(entry.category)" [style.--category-color]="getCategoryColor(entry.category)" [style.--entry-delay]="`${$index * 100}ms`">
-                <div class="entry-category">{{entry.category}}</div>
-                <div class="entry-title">{{entry.title}}</div>
+                <div class="entry-category" [aria-label]="`Category: ${entry.category}`">{{entry.category}}</div>
+                <h3 class="entry-title">{{entry.title}}</h3>
                 <div class="entry-caption">{{entry.caption}}</div>
-                <div class="entry-status">{{entry.status}}</div>
+                <div class="entry-status" [aria-label]="`Status: ${entry.status}`">{{entry.status}}</div>
             </a>
         }
     </div>

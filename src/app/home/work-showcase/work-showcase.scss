@@ -104,6 +104,7 @@
     .projects-slider-container {
         display: flex;
         overflow: scroll;
+        overflow-y: hidden;
         gap: 8vw;
         scroll-snap-type: x mandatory;
         width: calc(100% + (8vw * 2));

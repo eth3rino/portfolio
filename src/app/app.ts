@@ -5,6 +5,7 @@ import { Footer } from './footer/footer';
 import { Logo } from './logo/logo';
 import { CurrentTransitionSpy } from './services/current-transition-spy';
 import { filter } from 'rxjs';
+import { MetaTagHandler } from './services/meta-tag-handler';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,11 @@ import { filter } from 'rxjs';
   styleUrl: './app.scss'
 })
 export class App implements OnInit{
-  constructor(private currentTransitionSpy: CurrentTransitionSpy, private router: Router) {}
+  constructor(
+    private currentTransitionSpy: CurrentTransitionSpy,
+    private router: Router,
+    private metaTagHandler: MetaTagHandler
+  ) {}
 
 
   protected readonly title = signal('Elian Meaca');
@@ -26,6 +31,8 @@ export class App implements OnInit{
       mainHeading?.setAttribute('tabindex', '-1');
       mainHeading?.focus()
     })
+
+    this.metaTagHandler.init()
   }
 
 }

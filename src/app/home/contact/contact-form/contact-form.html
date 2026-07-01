@@ -1,9 +1,9 @@
-<form class="contact-form" appScrollReveal [animationType]="'fade-left'" [animationDelay]="200">
+<form [formRoot]="contactForm" class="contact-form" appScrollReveal [animationType]="'fade-left'" [animationDelay]="200" aria-label="Contact form">
     <div class="top-inputs">
         <div class="input-block">
             <label for="name">
-                ~ name
-                <input type="text" placeholder="Your name" [formField]="contactForm.name">
+                <span aria-hidden="true">~</span> name
+                <input id="name" type="text" placeholder="Your name" [formField]="contactForm.name">
             </label>
             <div class="error-container">
                 @if (contactForm.name().touched() && contactForm.name().invalid()) {
@@ -15,8 +15,8 @@
         </div>
         <div class="input-block">
             <label for="email">
-                ~ email
-                <input type="email" placeholder="your@email.com" [formField]="contactForm.email">
+                <span aria-hidden="true">~</span> email
+                <input id="email" type="email" placeholder="your@email.com" [formField]="contactForm.email">
             </label>
             <div class="error-container">
                 @if (contactForm.email().touched() && contactForm.email().invalid()) {
@@ -29,8 +29,8 @@
     </div>
     <div class="input-block">
         <label for="subject">
-            ~ subject
-            <input type="text" placeholder="What's this about?" [formField]="contactForm.subject">
+            <span aria-hidden="true">~</span> subject
+            <input id="subject" type="text" placeholder="What's this about?" [formField]="contactForm.subject">
         </label>
         <div class="error-container">
             @if (contactForm.subject().touched() && contactForm.subject().invalid()) {
@@ -42,8 +42,8 @@
     </div>
     <div class="input-block">
         <label for="message">
-            ~ message
-            <textarea class="message-input" placeholder="Tell me about your project, idea or question.." [formField]="contactForm.message"></textarea>
+            <span aria-hidden="true">~</span> message
+            <textarea id="message" class="message-input" placeholder="Tell me about your project, idea or question.." [formField]="contactForm.message"></textarea>
         </label>
         <div class="error-container">
             @if (contactForm.message().touched() && contactForm.message().invalid()) {
@@ -53,8 +53,33 @@
             }
         </div>
     </div>
+    <input type="text" class="visually-hidden" tabindex="-1" autocomplete="off" [formField]="contactForm._gotcha">
     <div class="form-footer">
         <div class="form-footer-caption key">// I'll reply within 24h</div>
-        <input type="submit" value="send-message">
+        <input type="submit" [class.submitting]="submitState() === 'submitting'" value="send-message">
     </div>
 </form>
+<!-- <button class="open-popup" (click)="submitState.set(null)">close popup</button>
+<button class="open-popup" (click)="submitState.set('successful')">show successful popup</button>
+<button class="open-popup" (click)="submitState.set('submitting')">show submitting popup</button>
+<button class="open-popup" (click)="submitState.set('failed')">show failed popup</button>
+<button class="open-popup" (click)="contactForm().reset(emptyFormValues)">reset form</button> -->
+@if (submitState() === 'submitting') {
+    <div class="popup submitting" animate.leave="pop-up-leave-animation">
+        <div class="pop-up-container">
+            <p class="pop-up-text">submitting</p>
+        </div>
+    </div>
+} @else if (submitState() === 'successful') {
+    <div class="popup successful-submit" animate.leave="pop-up-leave-animation">
+        <div class="pop-up-container">
+            <p class="pop-up-text">submit successful</p>
+        </div>
+    </div>
+} @else if (submitState() === 'failed') {
+    <div class="popup failed-submit" animate.leave="pop-up-leave-animation">
+        <div class="pop-up-container">
+            <p class="pop-up-text">submit failed</p>
+        </div>
+    </div>
+}

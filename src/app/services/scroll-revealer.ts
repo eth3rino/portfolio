@@ -11,7 +11,7 @@ export class ScrollRevealer {
         this.observer.unobserve(entry.target)
       }
     })
-  }, {threshold: .30, rootMargin: '0px 0px -10% 0px'}
+  }, {threshold: .20, rootMargin: '0px 0px -10% 0px'}
 )
 
   observe(element: Element) {

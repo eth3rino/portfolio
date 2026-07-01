@@ -1,13 +1,13 @@
 <section class="lab-wrapper">
     <div class="lab-header">
         <div class="header-text">
-            <div class="lab-label">~/lab</div>
+            <div class="lab-label" aria-hidden="true">~/lab</div>
             <h1 class="lab-title value">Things I build for <span class="pink">fun</span>.</h1>
         </div>
         <div class="stats-container value">
-            <div class="stat entry-count">{{entryCount}}<span class="stat-label key">// <span class="pink">entries</span></span></div>
-            <div class="stat category-count">{{categoryCount}}<span class="stat-label key">// <span class="pink">categories</span></span></div>
-            <div class="stat in-progress-count">{{inProgressCount}}<span class="stat-label key">// <span class="pink">in progress</span></span></div>
+            <span class="stat entry-count" aria-label="entries">{{entryCount}}<span class="stat-label key" aria-hidden="true">// <span class="pink">entries</span></span></span>
+            <span class="stat category-count" aria-label="categories">{{categoryCount}}<span class="stat-label key" aria-hidden="true">// <span class="pink">categories</span></span></span>
+            <span class="stat in-progress-count" aria-label="in progress">{{inProgressCount}}<span class="stat-label key" aria-hidden="true">// <span class="pink">in progress</span></span></span>
         </div>
     </div>
     <app-featured [mainCards]="mainCards" [smallCards]="smallCards"></app-featured>
