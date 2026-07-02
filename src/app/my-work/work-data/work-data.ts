@@ -51,7 +51,7 @@ export const ALL_WORKS: Work[] = [
         type: 'Fullstack Application',
         status: 'completed',
         tags: ['angular', 'nestjs', 'postgresql'],
-        linkToSource: '/',
+        linkToSource: 'https://github.com/eth3rino/notes-platform',
         isWebsite: false,
         image: {
             src: 'work/notes-platform/image.png',
@@ -67,9 +67,9 @@ export const ALL_WORKS: Work[] = [
         type: 'Personal Portfolio',
         status: 'completed',
         tags: ['angular'],
-        linkToSource: '/',
+        linkToSource: 'https://github.com/eth3rino/portfolio',
         isWebsite: true,
-        linkToLiveWebsite: 'https://elianmeaca.dev',
+        linkToLiveWebsite: 'https://elianmeaca.vercel.app',
         image: {
             src: 'work/portfolio-website/web-desktop-layout.png',
             alt: 'desktop-layout'
@@ -88,7 +88,7 @@ export const ALL_WORKS: Work[] = [
         type: 'Landing Page',
         status: 'completed',
         tags: ['angular'],
-        linkToSource: '/',
+        linkToSource: 'https://github.com/eth3rino/signsmith',
         isWebsite: true,
         linkToLiveWebsite: 'https://signsmith.vercel.app',
         image: {
