@@ -7,7 +7,7 @@
     <div class="separator"></div>
     <div class="work-container-wrapper">
         @for (work of allWorks; track $index) {
-            <div class="work-container" [id]="work.index">
+            <div class="work-container" [id]="work.index" appScrollReveal [animationType]="'fade-left'">
                 <div class="work-index" aria-hidden="true"><span class="index">//{{work.index}}</span></div>
                 <div class="work-images">
                     <!-- If has UI -->
