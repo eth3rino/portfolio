@@ -13,18 +13,30 @@
     // Section title
     .projects-showcase-title {
         display: inline-flex;
-        align-items: center;
+        align-items: end;
         gap: .6rem;
 
         text-transform: uppercase;
         letter-spacing: 1px;
 
         &::before {
-            content: '';
-            height: 1px;
-            width: 2rem;
-            background-color: var(--clr-separators);
-        }
+                content: '';
+                display: block;
+                width: 1rem;
+                height: .5rem;
+                // background-color: var(--clr-separators);
+                border-top: 2px solid var(--clr-keys);
+                border-left: 2px solid var(--clr-keys);
+            }
+            &::after {
+                content: '';
+                display: block;
+                width: 1rem;
+                height: .5rem;
+                // background-color: var(--clr-separators);
+                border-top: 2px solid var(--clr-keys);
+                border-right: 2px solid var(--clr-keys);
+            }
     }
 
     // Section oneliner (Big, eyecatching)
